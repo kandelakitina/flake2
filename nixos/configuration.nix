@@ -76,8 +76,34 @@
   # TODO: Set your hostname
   networking.hostName = "thinkpad";
 
-  # TODO: This is just an example, be sure to use whatever bootloader you prefer
-  boot.loader.systemd-boot.enable = true;
+  # TODO: Make your own boot settings
+  # Dual boot
+  boot = { 
+    kernelPackages = pkgs.linuxPackages_latest;
+    # initrd.kernelModules = ["nvidia_x11"];
+    loader = {
+      timeout = 5;
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+        # /boot will probably work too
+      };
+      grub  = {
+        enable = true;
+        configurationLimit = 5;
+        #device = ["nodev"];
+        # Generate boot menu but not actually installed
+        devices = ["nodev"];
+        # Install grub
+        efiSupport = true;
+        useOSProber = true;
+        # OSProber looks for installed systems
+        # Or use extraEntries like seen with Legacy
+        # OSProber will probably not find windows partition on first install. 
+        # Just do a rebuild than.
+      };
+    };
+  };
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
@@ -90,7 +116,7 @@
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-        ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDeOnbApjXX4zpivLrgu9jqMpkcF0WQvaVPqw8b+CK9U/L8Ds+ZXhAPssiufJGkl6DZRARlF4SMgnXLVCyiJpFO7XiGsrvBI1eQvFcgO2CxNDTah+Nyi8BBfCU7lXZxRMLONlsKk5/msaxgKHL7cr5Rxbk0Xi++4Yl80dlUoKhLEl78iU2RsUJ+Qn127W9/d/ug2vbWbYUFd6zI/ggiqHkt1VR2Kat43OMNWrrYkKnkiT0Tw2kt0y3c3yKW2/IOpz7+77UztmlArBXNGCUQuyKWLy3EzUUsVrH3p3v6hD2N3nqv5IJbg0QsIcYH/Yde9rzloUmX6hx3CBnLPhxpCNIkn9qVJtlIGMDkdgAOyBawJLeraRWZyA+LvWbqtb/5a6cXVf3rBBHSKf9YXv+AoK8WYZ1CyGrGCc1tG/lio5KofC/f4DESyqPhKT/clr4itaUwIsOhZYtQ3SbEh06d0JggWRP0lCH2gQqEOHa3jpA2PmOQ1scEVpO1Vq2+PM7flpbGK2CzuyjmimsIvVP+hrUzOnqVv6MOiS0so+JcWipXLwieL9VutM5pdmoyJgqS0IWmztPvgKG88xrZZZwBtHbPUzZbY0jlmkiOQhg7TTU221gC2IpDSufnoYOfJvma1T5Rni6j51gQsK84sfdRSTvlWjd86kpQhFA2K8Kqj0ofzw== kandelakitina@gmail.com
+        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDeOnbApjXX4zpivLrgu9jqMpkcF0WQvaVPqw8b+CK9U/L8Ds+ZXhAPssiufJGkl6DZRARlF4SMgnXLVCyiJpFO7XiGsrvBI1eQvFcgO2CxNDTah+Nyi8BBfCU7lXZxRMLONlsKk5/msaxgKHL7cr5Rxbk0Xi++4Yl80dlUoKhLEl78iU2RsUJ+Qn127W9/d/ug2vbWbYUFd6zI/ggiqHkt1VR2Kat43OMNWrrYkKnkiT0Tw2kt0y3c3yKW2/IOpz7+77UztmlArBXNGCUQuyKWLy3EzUUsVrH3p3v6hD2N3nqv5IJbg0QsIcYH/Yde9rzloUmX6hx3CBnLPhxpCNIkn9qVJtlIGMDkdgAOyBawJLeraRWZyA+LvWbqtb/5a6cXVf3rBBHSKf9YXv+AoK8WYZ1CyGrGCc1tG/lio5KofC/f4DESyqPhKT/clr4itaUwIsOhZYtQ3SbEh06d0JggWRP0lCH2gQqEOHa3jpA2PmOQ1scEVpO1Vq2+PM7flpbGK2CzuyjmimsIvVP+hrUzOnqVv6MOiS0so+JcWipXLwieL9VutM5pdmoyJgqS0IWmztPvgKG88xrZZZwBtHbPUzZbY0jlmkiOQhg7TTU221gC2IpDSufnoYOfJvma1T5Rni6j51gQsK84sfdRSTvlWjd86kpQhFA2K8Kqj0ofzw== kandelakitina@gmail.com"
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = ["wheel"];
