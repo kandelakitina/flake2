@@ -27,6 +27,9 @@
     ./hardware-configuration.nix
   ];
 
+  # Install Home-Manager globally
+  environment.systemPackages = [ inputs.home-manager.packages.${pkgs.system}.default ];
+
   nixpkgs = {
     # You can add overlays here
     overlays = [
