@@ -1,4 +1,4 @@
-{config, ...}: {
+{config, pkgs, ...}: {
   programs.git = {
     enable = true;
     userName = "bonticelli";
@@ -85,4 +85,9 @@
       ];
     };
   };
+  
+  home.packages = with pkgs; [
+    delta
+  ];
+  
 }
