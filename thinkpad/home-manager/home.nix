@@ -31,6 +31,14 @@
     # ./nvim.nix
   ];
 
+  # FIXME: Does not have effect
+  # Environment
+  home.sessionVariables = {
+    EDITOR = "hx";
+    BROWSER = "firefox";
+    TERMINAL = "alacritty";
+  };
+
   nixpkgs = {
     # You can add overlays here
     overlays = [
