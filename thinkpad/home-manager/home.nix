@@ -11,6 +11,11 @@
   # You can import other home-manager modules here
   imports = [
     ../../homeConfigs/alacritty
+    ../../homeConfigs/fish
+    ../../homeConfigs/nnn
+    ../../homeConfigs/zellij
+    ../../homeConfigs/fonts
+    ../../homeConfigs/git
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
 

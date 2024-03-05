@@ -30,13 +30,11 @@
     ./hardware-configuration.nix
   ];
 
-  # Install Home-Manager globally
-  # environment.systemPackages = [ inputs.home-manager.packages.${pkgs.system}.default ];
-
+  # Install Home-Manager module with users
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
-      # Import your home-manager configuration
+      # TODO: Import your home-manager configuration
       boticelli = import ../home-manager/home.nix;
     };
   };
