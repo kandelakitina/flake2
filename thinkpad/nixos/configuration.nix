@@ -10,6 +10,9 @@
 }: {
   # You can import other NixOS modules here
   imports = [
+    # Import home-manager's NixOS module
+    inputs.home-manager.nixosModules.home-manager
+
     # If you want to use modules your own flake exports (from modules/nixos):
     # outputs.nixosModules.example
 
@@ -28,7 +31,15 @@
   ];
 
   # Install Home-Manager globally
-  environment.systemPackages = [ inputs.home-manager.packages.${pkgs.system}.default ];
+  # environment.systemPackages = [ inputs.home-manager.packages.${pkgs.system}.default ];
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users = {
+      # Import your home-manager configuration
+      boticelli = import ../home-manager/home.nix;
+    };
+  };
 
   nixpkgs = {
     # You can add overlays here
