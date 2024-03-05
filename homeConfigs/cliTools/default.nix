@@ -13,6 +13,8 @@
     
     eza = {
       enable = true;
+      icons = true;
+      git = true;
 
       # ls, ll, la, lt, lla aliases
       enableAliases = true;
