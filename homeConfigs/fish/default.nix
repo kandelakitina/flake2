@@ -1,8 +1,14 @@
 # TODO install https://github.com/joshmedeski/sesh
 
-{ config, lib, pkgs, ... }:
-
 {
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+
   programs.fish = {
     enable = true;
     functions = {
