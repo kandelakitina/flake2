@@ -38,7 +38,7 @@
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # TODO: Import your home-manager configuration
-      boticelli = import ../home-manager/home.nix;
+      boticelli = import ./home.nix;
     };
   };
 

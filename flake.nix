@@ -63,7 +63,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./thinkpad/nixos/configuration.nix
+          ./thinkpad/configuration.nix
         ];
       };
     };
@@ -77,7 +77,7 @@
     #     extraSpecialArgs = {inherit inputs outputs;};
     #     modules = [
     #       # > Our main home-manager configuration file <
-    #       ./thinkpad/home-manager/home.nix
+    #       ./thinkpad/home.nix
     #     ];
     #   };
     # };
