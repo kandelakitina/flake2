@@ -19,6 +19,7 @@
     ../../homeConfigs/git
     ../../homeConfigs/starship
     ../../homeConfigs/helix
+    ../../homeConfigs/zoxide
 
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
