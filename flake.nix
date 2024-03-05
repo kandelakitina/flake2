@@ -18,12 +18,16 @@
 
     # TODO: implement:
     # nix-colors.url = "github:misterio77/nix-colors";
+    
+    zjstatus.url = "github:dj95/zjstatus";
+    
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    zjstatus,
     ...
   } @ inputs: let
     inherit (self) outputs;
