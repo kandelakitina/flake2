@@ -20,6 +20,7 @@
     ../homeConfigs/starship
     ../homeConfigs/helix
     ../homeConfigs/zoxide
+    ../homeConfigs/fzf
 
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
