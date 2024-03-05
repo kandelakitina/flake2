@@ -23,6 +23,9 @@
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
 
+    # Proxy
+    ./v2ray
+
     # GNOME
     ./gnome
 
@@ -37,6 +40,11 @@
       # TODO: Import your home-manager configuration
       boticelli = import ../home-manager/home.nix;
     };
+  };
+
+  environment.variables = {
+    EDITOR = "hx";
+    VISUAL = "hx";
   };
 
   nixpkgs = {
