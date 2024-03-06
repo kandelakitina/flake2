@@ -34,6 +34,11 @@
     
     jq.enable = true;
     ripgrep.enable = true;
+
+    thefuck = {
+      enable = true;
+      enableFishIntegration = true;
+    };
         
   };
 
@@ -43,8 +48,10 @@
     curlie          # curl + httpie
     du-dust         # see file trees ('dust')
     duf             # better 'df' (disk usage)
-    # dog             # a CLI dns client
+    gdu             # disk usage (folders)
+    # dogdns             # a CLI dns client
     httpie          # CLI HTTP client for APIs access
+    ouch            # better unzip
     procs           # better ps
     sd              # better sed
     silver-searcher # 'ag' (code search)
