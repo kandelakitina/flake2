@@ -45,11 +45,9 @@
     duf             # better 'df' (disk usage)
     # dog             # a CLI dns client
     httpie          # CLI HTTP client for APIs access
-    navi            # better cheatsheets TODO: learn it
     procs           # better ps
     sd              # better sed
     silver-searcher # 'ag' (code search)
-    tldr            # better man pages
     tree
     xclip
     xh              # sending HTTP requests in CLi
