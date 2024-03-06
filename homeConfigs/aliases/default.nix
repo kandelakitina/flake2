@@ -4,6 +4,9 @@
     g = "git";
     lg = "lazygit";
     nrs = "sudo nixos-rebuild switch --flake .#thinkpad";
+    du = "dust";
+    df = "duf";
+    ps = "procs";
 
     # Eza has built-in aliases
   };

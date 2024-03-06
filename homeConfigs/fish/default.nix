@@ -45,7 +45,7 @@
     '';
     plugins = [
       # Enable a plugin (here grc for colorized command output) from nixpkgs
-      { name = "grc"; src = pkgs.fishPlugins.grc.src; }
+      # { name = "grc"; src = pkgs.fishPlugins.grc.src; }
       { name = "fzf-fish"; src = pkgs.fishPlugins.fzf-fish.src; }
       { name = "done"; src = pkgs.fishPlugins.done.src; }
       { name = "autopair"; src = pkgs.fishPlugins.autopair.src; }
