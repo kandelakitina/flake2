@@ -23,6 +23,7 @@
     ../homeConfigs/fzf
     ../homeConfigs/cliTools
     ../homeConfigs/cheatSheets
+    ../homeConfigs/atuin
 
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
