@@ -22,7 +22,6 @@
     ../homeConfigs/zoxide
     ../homeConfigs/fzf
     ../homeConfigs/cliTools
-    ../homeConfigs/aliases
 
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
@@ -33,6 +32,10 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
   ];
+
+  home.shellAliases = {
+    nrs = "sudo nixos-rebuild switch --flake .#thinkpad";
+  };
 
   # FIXME: Does not have effect
   # Environment

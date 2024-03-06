@@ -54,4 +54,10 @@
     xclip
     xh              # sending HTTP requests in CLi
   ];
+
+  home.shellAliases = {
+    du = "dust";
+    df = "duf";
+    ps = "procs";
+  };
 }

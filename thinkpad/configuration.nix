@@ -24,10 +24,10 @@
     # ./users.nix
 
     # Proxy
-    ./v2ray
+    ../nixosConfigs/v2ray
 
     # GNOME
-    ./gnome
+    ../nixosConfigs/gnome
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix

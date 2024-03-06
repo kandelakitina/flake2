@@ -90,4 +90,9 @@
     delta
   ];
   
+  home.shellAliases = {
+    g = "git";
+    lg = "lazygit";
+  };
+  
 }
