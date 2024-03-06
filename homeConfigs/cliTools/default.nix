@@ -7,6 +7,22 @@
   ...
 }: {
   programs = {
+
+    # fuzzy finder
+    fzf = {
+      enable = true;
+      enableFishIntegration = false;
+    };
+
+    # better ctrl-r history search (replaces fzf)
+    # see also atuin
+    mcfly = {
+      enable = true;
+      enableFishIntegration = true;
+      keyScheme = "vim";
+      # interfaceView = "BOTTOM";
+      # fzf.enable = true;
+    };
     
     bat.enable = true;
     btop.enable = true;
@@ -26,16 +42,16 @@
       enableAliases = true;
     };
 
-    # better ctrl-r history search
-    mcfly = {
-      enable = true;
-      enableFishIntegration = true;
-    };
     
     jq.enable = true;
     ripgrep.enable = true;
 
     thefuck = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
+    zoxide = {
       enable = true;
       enableFishIntegration = true;
     };

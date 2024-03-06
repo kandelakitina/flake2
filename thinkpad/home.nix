@@ -19,8 +19,6 @@
     ../homeConfigs/git
     ../homeConfigs/starship
     ../homeConfigs/helix
-    ../homeConfigs/zoxide
-    ../homeConfigs/fzf
     ../homeConfigs/cliTools
     ../homeConfigs/cheatSheets
     # ../homeConfigs/atuin
