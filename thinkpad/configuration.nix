@@ -42,10 +42,10 @@
     };
   };
 
-  environment.variables = {
-    EDITOR = "hx";
-    VISUAL = "hx";
-  };
+  # environment.variables = {
+  #   EDITOR = "hx";
+  #   VISUAL = "hx";
+  # };
 
   nixpkgs = {
     # You can add overlays here
