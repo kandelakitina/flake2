@@ -14,16 +14,36 @@
     ./hardware-configuration.nix
 
     ../nixosConfigs
+    ../nixosConfigs/users/boticelli.nix
   ];
 
-  # Install Home-Manager module with users
-  home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
-    users = {
-      # TODO: Import your home-manager configuration
-      boticelli = import ./home.nix;
-    };
+  networking = {
+    hostName = "thinkpad";
   };
+
+  # modules.nixos = {
+  #   avahi.enable = true;
+  #   auto-hibernate.enable = false;
+  #   backup.enable = true;
+  #   bluetooth.enable = true;
+  #   docker.enable = true;
+  #   fingerprint.enable = true;
+  #   gaming.enable = true;
+  #   login.enable = true;
+  #   extraSecurity.enable = true;
+  #   power.enable = true;
+  #   virtualisation.enable = true;
+  #   vpn.enable = true;
+  # };
+  
+  # # Install Home-Manager module with users
+  # home-manager = {
+  #   extraSpecialArgs = { inherit inputs outputs; };
+  #   users = {
+  #     # TODO: Import your home-manager configuration
+  #     boticelli = import ./home.nix;
+  #   };
+  # };
 
   # environment.variables = {
   #   EDITOR = "hx";
@@ -89,9 +109,6 @@
 
   # FIXME: Add the rest of your current configuration
 
-  # TODO: Set your hostname
-  networking.hostName = "thinkpad";
-
   # TODO: Make your own boot settings
   # Dual boot
   boot = { 
@@ -121,28 +138,28 @@
     };
   };
 
-  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
-  users.users = {
-    # FIXME: Replace with your username
-    boticelli = {
-      # TODO: You can set an initial password for your user.
-      # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-      # Be sure to change it (using passwd) after rebooting!
-      initialPassword = "password";
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDeOnbApjXX4zpivLrgu9jqMpkcF0WQvaVPqw8b+CK9U/L8Ds+ZXhAPssiufJGkl6DZRARlF4SMgnXLVCyiJpFO7XiGsrvBI1eQvFcgO2CxNDTah+Nyi8BBfCU7lXZxRMLONlsKk5/msaxgKHL7cr5Rxbk0Xi++4Yl80dlUoKhLEl78iU2RsUJ+Qn127W9/d/ug2vbWbYUFd6zI/ggiqHkt1VR2Kat43OMNWrrYkKnkiT0Tw2kt0y3c3yKW2/IOpz7+77UztmlArBXNGCUQuyKWLy3EzUUsVrH3p3v6hD2N3nqv5IJbg0QsIcYH/Yde9rzloUmX6hx3CBnLPhxpCNIkn9qVJtlIGMDkdgAOyBawJLeraRWZyA+LvWbqtb/5a6cXVf3rBBHSKf9YXv+AoK8WYZ1CyGrGCc1tG/lio5KofC/f4DESyqPhKT/clr4itaUwIsOhZYtQ3SbEh06d0JggWRP0lCH2gQqEOHa3jpA2PmOQ1scEVpO1Vq2+PM7flpbGK2CzuyjmimsIvVP+hrUzOnqVv6MOiS0so+JcWipXLwieL9VutM5pdmoyJgqS0IWmztPvgKG88xrZZZwBtHbPUzZbY0jlmkiOQhg7TTU221gC2IpDSufnoYOfJvma1T5Rni6j51gQsK84sfdRSTvlWjd86kpQhFA2K8Kqj0ofzw== kandelakitina@gmail.com"
-      ];
-      # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["wheel"];
+  # # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
+  # users.users = {
+  #   # FIXME: Replace with your username
+  #   boticelli = {
+  #     # TODO: You can set an initial password for your user.
+  #     # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
+  #     # Be sure to change it (using passwd) after rebooting!
+  #     initialPassword = "password";
+  #     isNormalUser = true;
+  #     openssh.authorizedKeys.keys = [
+  #       # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
+  #       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDeOnbApjXX4zpivLrgu9jqMpkcF0WQvaVPqw8b+CK9U/L8Ds+ZXhAPssiufJGkl6DZRARlF4SMgnXLVCyiJpFO7XiGsrvBI1eQvFcgO2CxNDTah+Nyi8BBfCU7lXZxRMLONlsKk5/msaxgKHL7cr5Rxbk0Xi++4Yl80dlUoKhLEl78iU2RsUJ+Qn127W9/d/ug2vbWbYUFd6zI/ggiqHkt1VR2Kat43OMNWrrYkKnkiT0Tw2kt0y3c3yKW2/IOpz7+77UztmlArBXNGCUQuyKWLy3EzUUsVrH3p3v6hD2N3nqv5IJbg0QsIcYH/Yde9rzloUmX6hx3CBnLPhxpCNIkn9qVJtlIGMDkdgAOyBawJLeraRWZyA+LvWbqtb/5a6cXVf3rBBHSKf9YXv+AoK8WYZ1CyGrGCc1tG/lio5KofC/f4DESyqPhKT/clr4itaUwIsOhZYtQ3SbEh06d0JggWRP0lCH2gQqEOHa3jpA2PmOQ1scEVpO1Vq2+PM7flpbGK2CzuyjmimsIvVP+hrUzOnqVv6MOiS0so+JcWipXLwieL9VutM5pdmoyJgqS0IWmztPvgKG88xrZZZwBtHbPUzZbY0jlmkiOQhg7TTU221gC2IpDSufnoYOfJvma1T5Rni6j51gQsK84sfdRSTvlWjd86kpQhFA2K8Kqj0ofzw== kandelakitina@gmail.com"
+  #     ];
+  #     # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
+  #     extraGroups = ["wheel"];
 
-      # default shell
-      shell = pkgs.fish;
-    };
-  };
+  #     # default shell
+  #     shell = pkgs.fish;
+  #   };
+  # };
 
-  programs.fish.enable = true;
+  # programs.fish.enable = true;
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
