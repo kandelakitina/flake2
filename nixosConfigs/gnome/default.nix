@@ -18,8 +18,6 @@
     # Gnome settings
     xserver = {
       enable = true;
-      layout = "us,ru";
-      xkbOptions = "caps:escape";
       displayManager = {
         gdm.enable = true;
         defaultSession = "gnome";
