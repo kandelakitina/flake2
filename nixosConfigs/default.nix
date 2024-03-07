@@ -25,4 +25,11 @@
   home-manager.extraSpecialArgs = {inherit inputs outputs;};
   networking.networkmanager.enable = true;
   # programs.hyprland.enable = true;
+
+  nixpkgs = {
+    overlays = builtins.attrValues outputs.overlays;
+    config = {
+      allowUnfree = true;
+    };
+  };
 }
