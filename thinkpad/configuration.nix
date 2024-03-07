@@ -35,20 +35,6 @@
   #   virtualisation.enable = true;
   #   vpn.enable = true;
   # };
-  
-  # # Install Home-Manager module with users
-  # home-manager = {
-  #   extraSpecialArgs = { inherit inputs outputs; };
-  #   users = {
-  #     # TODO: Import your home-manager configuration
-  #     boticelli = import ./home.nix;
-  #   };
-  # };
-
-  # environment.variables = {
-  #   EDITOR = "hx";
-  #   VISUAL = "hx";
-  # };
 
   nixpkgs = {
     # You can add overlays here

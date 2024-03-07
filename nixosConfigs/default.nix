@@ -22,4 +22,7 @@
   ]
   ++ (builtins.attrValues outputs.nixosModules); 
 
+  home-manager.extraSpecialArgs = {inherit inputs outputs;};
+  networking.networkmanager.enable = true;
+  # programs.hyprland.enable = true;
 }
