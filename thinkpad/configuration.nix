@@ -10,11 +10,19 @@
 }: {
   # You can import other NixOS modules here
   imports = [
-    # inputs.hardware.nixosModules.framework-13-7040-amd
+    inputs.hardware.nixosModules.lenovo-thinkpad-x1-7th-gen
+
     ./hardware-configuration.nix
 
     ../nixosConfigs
     ../nixosConfigs/users/boticelli.nix
+
+    ../nixosConfigs/extra/powerManagement.nix
+
+    # ../nixosConfigs/extra/virtualisation.nix
+    # ../nixosConfigs/extra/openGL.nix
+    # ../nixosConfigs/extra/auto-upgrade.nix
+
   ];
 
   networking = {

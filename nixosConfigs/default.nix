@@ -19,6 +19,7 @@
 
     # GNOME
     ./gnome
+
   ]
   ++ (builtins.attrValues outputs.nixosModules); 
 

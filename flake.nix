@@ -18,7 +18,7 @@
     flake-programs-sqlite.inputs.nixpkgs.follows = "nixpkgs";
 
     # TODO: implement:
-    # hardware.url = "github:nixos/nixos-hardware";
+    hardware.url = "github:nixos/nixos-hardware";
 
     # TODO: implement:
     # nix-colors.url = "github:misterio77/nix-colors";
