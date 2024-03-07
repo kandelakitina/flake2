@@ -81,5 +81,11 @@
     du = "dust";
     df = "duf";
     ps = "procs";
+    cd = "z";
+    grep = "rg";
+    dig = "dog";
+    cat = "bat";
+    curl = "curlie";
+    sudo = "sudo -E -s";
   };
 }
