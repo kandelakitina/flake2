@@ -10,27 +10,10 @@
 }: {
   # You can import other NixOS modules here
   imports = [
-    # Import home-manager's NixOS module
-    inputs.home-manager.nixosModules.home-manager
-
-    # If you want to use modules your own flake exports (from modules/nixos):
-    # outputs.nixosModules.example
-
-    # Or modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-
-    # Proxy
-    ../nixosConfigs/v2ray
-
-    # GNOME
-    ../nixosConfigs/gnome
-
-    # Import your generated (nixos-generate-config) hardware configuration
+    # inputs.hardware.nixosModules.framework-13-7040-amd
     ./hardware-configuration.nix
+
+    ../nixosConfigs
   ];
 
   # Install Home-Manager module with users
