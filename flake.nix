@@ -13,6 +13,10 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # simple flake to solve 'command-not-found' issue
+    flake-programs-sqlite.url = "github:wamserma/flake-programs-sqlite";
+    flake-programs-sqlite.inputs.nixpkgs.follows = "nixpkgs";
+
     # TODO: implement:
     # hardware.url = "github:nixos/nixos-hardware";
 

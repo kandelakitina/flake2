@@ -11,6 +11,9 @@
     # Import home-manager's NixOS module
     inputs.home-manager.nixosModules.home-manager
 
+    # simple flake to solve 'command-not-found' issue
+    inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
 
