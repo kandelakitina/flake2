@@ -25,10 +25,47 @@
   ]
   ++ (builtins.attrValues outputs.nixosModules); 
 
-  home-manager.extraSpecialArgs = {inherit inputs outputs;};
-  networking.networkmanager.enable = true;
   # programs.hyprland.enable = true;
 
+  home-manager.extraSpecialArgs = {inherit inputs outputs;};
+  networking.networkmanager.enable = true;
+
+  # This setups a SSH server. Very important if you're setting up a headless system.
+  # Feel free to remove if you don't need it.
+  services = {
+    openssh = {
+      enable = true;
+      settings = {
+        # Forbid root login through SSH.
+        PermitRootLogin = "no";
+        # Use keys only. Remove if you want to SSH using password (not recommended)
+        PasswordAuthentication = false;
+      };
+    };
+
+    # # TODO: find out what are these?
+    # pcscd.enable = true;
+    # udev.packages = with pkgs; [yubikey-personalization];
+    # gvfs.enable = true;
+    # udisks2.enable = true;
+    # fwupd.enable = true;
+    # dbus.packages = [pkgs.gcr];
+  };
+
+  # Sound options
+  sound.enable = true;
+  security.rtkit.enable = true;
+  hardware.pulseaudio.enable = lib.mkForce false;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
+
+  # Some default backend
+  # ********************
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
     config = {
@@ -66,17 +103,5 @@
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
-  };
-
-  # This setups a SSH server. Very important if you're setting up a headless system.
-  # Feel free to remove if you don't need it.
-  services.openssh = {
-    enable = true;
-    settings = {
-      # Forbid root login through SSH.
-      PermitRootLogin = "no";
-      # Use keys only. Remove if you want to SSH using password (not recommended)
-      PasswordAuthentication = false;
-    };
   };
 }
