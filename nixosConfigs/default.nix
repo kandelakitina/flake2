@@ -73,13 +73,6 @@
     };
   };
 
-  # This will add each flake input as a registry
-  # To make nix3 commands consistent with your flake
-  nix.registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
-
-  # This will additionally add your inputs to the system's legacy channels
-  # Making legacy nix commands consistent as well, awesome!
-  nix.nixPath = ["/etc/nix/path"];
   environment.etc =
     lib.mapAttrs'
     (name: value: {
@@ -88,20 +81,39 @@
     })
     config.nix.registry;
 
-  nix.settings = {
-    # Enable flakes and new 'nix' command
-    experimental-features = "nix-command flakes";
-    # Deduplicate and optimize nix store
-    auto-optimise-store = true;
+  nix = {
+    settings = {
+      trusted-users = ["root" "@wheel"];
+      auto-optimise-store = lib.mkDefault true;
+      use-xdg-base-directories = true;
+      experimental-features = ["nix-command" "flakes" "repl-flake"];
+      warn-dirty = false;
+      system-features = ["kvm" "big-parallel" "nixos-test"];
+ 
+      # adding cachix servers for quick binary download
+      trusted-substituters = [
+        "https://cache.nixos.org"
+        "https://nix-community.cachix.org"
+      ];
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+    };
 
-    # adding cachix servers for quick binary download
-    trusted-substituters = [
-      "https://cache.nixos.org"
-      "https://nix-community.cachix.org"
-    ];
-    trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      # Delete older generations too
+      options = "--delete-older-than 2d";
+    };
+
+    # Add each flake input as a registry
+    # To make nix3 commands consistent with the flake
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+
+    # Add nixpkgs input to NIX_PATH
+    # This lets nix2 commands still use <nixpkgs>
+    nixPath = ["nixpkgs=${inputs.nixpkgs.outPath}"];
   };
 }
