@@ -17,8 +17,8 @@
     flake-programs-sqlite.url = "github:wamserma/flake-programs-sqlite";
     flake-programs-sqlite.inputs.nixpkgs.follows = "nixpkgs";
 
-    # TODO: implement:
     hardware.url = "github:nixos/nixos-hardware";
+    nix-gaming.url = "github:fufexan/nix-gaming";
 
     # TODO: implement:
     # nix-colors.url = "github:misterio77/nix-colors";

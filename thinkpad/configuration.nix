@@ -17,7 +17,8 @@
     ../nixosConfigs
     ../nixosConfigs/users/boticelli.nix
 
-    ../nixosConfigs/extra/powerManagement.nix
+    # ../nixosConfigs/extra/powerManagement.nix
+    # ../nixosConfigs/extra/gaming.nix
 
     # ../nixosConfigs/extra/virtualisation.nix
     # ../nixosConfigs/extra/openGL.nix
