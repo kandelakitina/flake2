@@ -17,6 +17,7 @@
     ../nixosConfigs
     ../nixosConfigs/users/boticelli.nix
 
+    # ../nixosConfigs/extra/fingerprint.nix
     # ../nixosConfigs/extra/powerManagement.nix
     # ../nixosConfigs/extra/gaming.nix
 
