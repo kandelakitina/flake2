@@ -17,6 +17,8 @@
     ../nixosConfigs
     ../nixosConfigs/users/boticelli.nix
 
+    # ../nixosConfigs/extra/auto-hibernate.nix
+    # ../nixosConfigs/extra/bluetooth.nix
     # ../nixosConfigs/extra/fingerprint.nix
     # ../nixosConfigs/extra/powerManagement.nix
     # ../nixosConfigs/extra/gaming.nix
