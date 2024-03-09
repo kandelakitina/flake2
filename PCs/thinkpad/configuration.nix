@@ -36,6 +36,23 @@
   environment.shellAliases = {
     nrs = "sudo nixos-rebuild switch --flake .#${config.networking.hostName}";
   };
+
+  nixpkgs = {
+    overlays =
+      builtins.attrValues outputs.overlays
+      ++ [
+        # inputs.nixneovimplugins.overlays.default
+        # inputs.neovim-nightly-overlay.overlay
+        inputs.nixgl.overlay
+      ];
+
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = _: true;
+    };
+  };
+
+  environment.systemPackages = [pkgs.nixgl.nixGLIntel];
  
   # modules.nixos = {
   #   avahi.enable = true;
