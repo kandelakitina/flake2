@@ -45,14 +45,11 @@
         # inputs.neovim-nightly-overlay.overlay
         inputs.nixgl.overlay
       ];
-
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true;
-    };
   };
 
-  environment.systemPackages = [pkgs.nixgl.nixGLIntel];
+  environment.systemPackages = with pkgs; [
+    # nixgl.nixGLIntel
+  ];
  
   # modules.nixos = {
   #   avahi.enable = true;

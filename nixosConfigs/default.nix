@@ -27,10 +27,15 @@
 
   home-manager.extraSpecialArgs = {
     inherit inputs outputs;
-    # TODO: delete (unnecessary)
-    # pkgs = pkgs.legacyPackages.x86_64-linux;
   };
   networking.networkmanager.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    helix
+    git
+    curl
+    wget
+  ];
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
@@ -94,9 +99,9 @@
   # Some default backend
   # ********************
   nixpkgs = {
-    overlays = builtins.attrValues outputs.overlays;
     config = {
       allowUnfree = true;
+      allowUnfreePredicate = _: true;
     };
   };
 
