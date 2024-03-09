@@ -1,0 +1,7 @@
+- flake.nix
+  - PCs/thinkpad/configuration.nix
+    - users/boticelli/default.nix
+      - users/boticelli/home.nix
+        - homeConfigs/fish
+        - ...
+    - nixosConfigs/default.nix

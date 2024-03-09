@@ -11,18 +11,18 @@
   # You can import other home-manager modules here
   imports = [
 
-    ../homeConfigs/rgv.nix
-    ../homeConfigs/alacritty
-    ../homeConfigs/fish
-    ../homeConfigs/nnn
-    ../homeConfigs/zellij
-    ../homeConfigs/fonts
-    ../homeConfigs/git
-    ../homeConfigs/starship
-    ../homeConfigs/helix
-    ../homeConfigs/cliTools
-    ../homeConfigs/cheatSheets
-    # ../homeConfigs/atuin
+    ../../homeConfigs/rgv.nix
+    ../../homeConfigs/alacritty
+    ../../homeConfigs/fish
+    ../../homeConfigs/nnn
+    ../../homeConfigs/zellij
+    ../../homeConfigs/fonts
+    ../../homeConfigs/git
+    ../../homeConfigs/starship
+    ../../homeConfigs/helix
+    ../../homeConfigs/cliTools
+    ../../homeConfigs/cheatSheets
+    # ../../homeConfigs/atuin
 
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
@@ -46,6 +46,8 @@
     TERMINAL = "alacritty";
   };
 
+  # home.packages = [pkgs.nixgl.nixGLIntel];
+  
   nixpkgs = {
     # You can add overlays here
     overlays = [

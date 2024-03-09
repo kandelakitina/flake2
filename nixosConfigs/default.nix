@@ -25,7 +25,10 @@
 
   # programs.hyprland.enable = true;
 
-  home-manager.extraSpecialArgs = {inherit inputs outputs;};
+  home-manager.extraSpecialArgs = {
+    inherit inputs outputs;
+    # pkgs = pkgs.legacyPackages.x86_64-linux;
+  };
   networking.networkmanager.enable = true;
 
   # This setups a SSH server. Very important if you're setting up a headless system.
@@ -63,7 +66,7 @@
   };
 
   # Locale
-    i18n = {
+  i18n = {
     defaultLocale = lib.mkDefault "en_GB.UTF-8";
     extraLocaleSettings = {
       LC_ADDRESS = "en_GB.UTF-8";

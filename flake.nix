@@ -68,10 +68,14 @@
     nixosConfigurations = {
       # FIXME replace with your hostname
       thinkpad = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        # pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        specialArgs = {
+          inherit inputs outputs;
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        };
         modules = [
           # > Our main nixos configuration file <
-          ./thinkpad/configuration.nix
+          ./PCs/thinkpad/configuration.nix
         ];
       };
     };

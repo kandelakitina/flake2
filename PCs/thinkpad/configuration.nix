@@ -14,18 +14,18 @@
 
     ./hardware-configuration.nix
 
-    ../nixosConfigs
-    ../nixosConfigs/users/boticelli.nix
+    ../../nixosConfigs/default.nix
+    ../../users/boticelli/default.nix
 
-    # ../nixosConfigs/extra/auto-hibernate.nix
-    # ../nixosConfigs/extra/bluetooth.nix
-    # ../nixosConfigs/extra/fingerprint.nix
-    # ../nixosConfigs/extra/powerManagement.nix
-    # ../nixosConfigs/extra/gaming.nix
+    # ../../nixosConfigs/extra/auto-hibernate.nix
+    # ../../nixosConfigs/extra/bluetooth.nix
+    # ../../nixosConfigs/extra/fingerprint.nix
+    # ../../nixosConfigs/extra/powerManagement.nix
+    # ../../nixosConfigs/extra/gaming.nix
 
-    # ../nixosConfigs/extra/virtualisation.nix
-    # ../nixosConfigs/extra/openGL.nix
-    # ../nixosConfigs/extra/auto-upgrade.nix
+    # ../../nixosConfigs/extra/virtualisation.nix
+    # ../../nixosConfigs/extra/openGL.nix
+    # ../../nixosConfigs/extra/auto-upgrade.nix
 
   ];
 
