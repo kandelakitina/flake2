@@ -27,6 +27,7 @@
 
   home-manager.extraSpecialArgs = {
     inherit inputs outputs;
+    # TODO: delete (unnecessary)
     # pkgs = pkgs.legacyPackages.x86_64-linux;
   };
   networking.networkmanager.enable = true;

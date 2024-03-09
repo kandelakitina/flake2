@@ -33,6 +33,10 @@
     hostName = "thinkpad";
   };
 
+  environment.shellAliases = {
+    nrs = "sudo nixos-rebuild switch --flake .#${config.networking.hostName}";
+  };
+ 
   # modules.nixos = {
   #   avahi.enable = true;
   #   auto-hibernate.enable = false;

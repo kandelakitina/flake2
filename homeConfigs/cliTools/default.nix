@@ -6,6 +6,10 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./rgv.nix
+  ];
+
   programs = {
 
     # fuzzy finder

@@ -11,7 +11,8 @@
   # You can import other home-manager modules here
   imports = [
 
-    ../../homeConfigs/rgv.nix
+    ../../homeConfigs/default.nix
+
     ../../homeConfigs/alacritty
     ../../homeConfigs/fish
     ../../homeConfigs/nnn
@@ -34,10 +35,6 @@
     # ./nvim.nix
   ];
 
-  home.shellAliases = {
-    nrs = "sudo nixos-rebuild switch --flake .#thinkpad";
-  };
-
   # FIXME: Does not have effect
   # Environment
   home.sessionVariables = {
@@ -46,8 +43,6 @@
     TERMINAL = "alacritty";
   };
 
-  # home.packages = [pkgs.nixgl.nixGLIntel];
-  
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -66,13 +61,6 @@
       #   });
       # })
     ];
-    # Configure your nixpkgs instance
-    config = {
-      # Disable if you don't want unfree packages
-      allowUnfree = true;
-      # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = _: true;
-    };
   };
 
   # TODO: Set your username
@@ -84,14 +72,4 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-
-  # Enable home-manager and git
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
-
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
-
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.11";
 }

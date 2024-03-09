@@ -19,6 +19,7 @@
 
     hardware.url = "github:nixos/nixos-hardware";
     nix-gaming.url = "github:fufexan/nix-gaming";
+    nixgl.url = "github:nix-community/nixGL";
 
     # TODO: implement:
     # nix-colors.url = "github:misterio77/nix-colors";
@@ -68,10 +69,10 @@
     nixosConfigurations = {
       # FIXME replace with your hostname
       thinkpad = nixpkgs.lib.nixosSystem {
-        # pkgs = nixpkgs.legacyPackages.x86_64-linux;
         specialArgs = {
           inherit inputs outputs;
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          # TODO: delete this line
+          # pkgs = nixpkgs.legacyPackages.x86_64-linux;
         };
         modules = [
           # > Our main nixos configuration file <
