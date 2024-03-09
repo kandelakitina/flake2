@@ -11,6 +11,7 @@
   # You can import other home-manager modules here
   imports = [
 
+    ../homeConfigs/rgv.nix
     ../homeConfigs/alacritty
     ../homeConfigs/fish
     ../homeConfigs/nnn

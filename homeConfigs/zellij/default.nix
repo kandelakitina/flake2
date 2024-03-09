@@ -7,6 +7,9 @@
 }:
 
 {
+  imports = [
+    ./sesh.nix
+  ];
   
   home.packages = [
     # pkgs.tmate
