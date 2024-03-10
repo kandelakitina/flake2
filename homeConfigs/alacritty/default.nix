@@ -4,9 +4,26 @@
   programs.alacritty = {
     enable = true;
     settings = {
+
       env = {
         TERM = "xterm-256color";
       };
+
+      # window = {
+      #   padding = {
+      #     x = 30;
+      #     y = 30;
+      #   };
+      #   decorations = "none";
+      # };
+
+      mouse_bindings = [
+        {
+          mouse = "Right";
+          action = "Paste";
+        }
+      ];
+
       font = {
         normal = {
           family = config.my.settings.fonts.monospace;
@@ -16,10 +33,11 @@
 
       scrolling.multiplier = 5;
       selection.save_to_clipboard = true;
-      # shell = {
-        # program = "fish";
-        # args = [ "-l" "-c" "tmux attach || tmux" ];
-      # };
+
+      shell = {
+        program = "fish";
+      };
+
       theme = "iTerm-Default";
       colors = {
         bright = {
