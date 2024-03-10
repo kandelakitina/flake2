@@ -43,16 +43,22 @@ in {
     # };
 
     fonts = {
+      size = mkOption {
+        type = types.int;
+        description = "The font size";
+        default = 18;
+      };
+
       regular = mkOption {
         type = types.str;
         description = "The font for regular text";
-        default = "Ubuntu Nerd Font";
+        default = "Ubuntu";
       };
 
       monospace = mkOption {
         type = types.str;
         description = "The font for monospace text";
-        default = "Ubuntu Nerd Font";
+        default = "Ubuntu Mono Nerd Font";
       };
     };
 

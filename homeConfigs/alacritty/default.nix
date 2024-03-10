@@ -9,10 +9,11 @@
       };
       font = {
         normal = {
-          family = "Ubuntu Mono Nerd Font";
+          family = config.my.settings.fonts.monospace;
         };
-        size = 18;
+        size = config.my.settings.fonts.size;
       };
+
       scrolling.multiplier = 5;
       selection.save_to_clipboard = true;
       # shell = {
