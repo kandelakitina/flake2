@@ -25,6 +25,10 @@
     ../../homeConfigs/helix
     ../../homeConfigs/cliTools
     ../../homeConfigs/cheatSheets
+    ../../homeConfigs/direnv
+    ../../homeConfigs/firefox
+
+    # ../../homeConfigs/gaming
     # ../../homeConfigs/atuin
 
     # If you want to use modules your own flake exports (from modules/home-manager):
