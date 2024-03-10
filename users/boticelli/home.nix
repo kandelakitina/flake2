@@ -11,6 +11,8 @@
   # You can import other home-manager modules here
   imports = [
 
+    ./options.nix
+    
     ../../homeConfigs/default.nix
 
     ../../homeConfigs/alacritty
