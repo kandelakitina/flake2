@@ -41,7 +41,7 @@
     # ./nvim.nix
   ];
 
-    colorScheme = import ./iterm.nix;
+  colorScheme = import ./iterm.nix;
   # colorScheme = import ./dracula_at_night.nix;
   # colorscheme = inputs.nix-colors.colorSchemes.tokyo-night-dark;
 
