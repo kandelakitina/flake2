@@ -1,21 +1,21 @@
 {colorScheme}: let
   background = "base00";
   background_dark = "base01";
-  purple = "base03";
   foreground = "base04";
-  red = "base08";
-  orange = "base09";
-  yellow = "base0A";
-  green = "base0B";
-  cyan = "base0C";
-  pink = "base07";
+  comment = "base03";
+  red = "base09";
+  orange = "base0A";
+  yellow = "base0B";
+  green = "base0C";
+  purple = "base0E";
+  cyan = "base0D";
+  pink = "base0F";
   black = "base00";
-  blue = "base0D";
 in {
-  "nix-${colorScheme.slug}" = {
+  iTermFromBase = {
     palette = builtins.mapAttrs (name: value: "#${value}") colorScheme.palette;
 
-    "comment" = {fg = blue;};
+    "comment" = {fg = comment;};
     "constant" = {fg = purple;};
     "constant.character.escape" = {fg = pink;};
     "function" = {fg = green;};
@@ -74,7 +74,7 @@ in {
       fg = black;
       bg = red;
     };
-    "ui.linenr" = {fg = blue;};
+    "ui.linenr" = {fg = comment;};
     "ui.linenr.selected" = {fg = foreground;};
     "ui.menu" = {
       fg = foreground;
@@ -103,7 +103,7 @@ in {
       bg = background_dark;
     };
     "ui.statusline.inactive" = {
-      fg = blue;
+      fg = comment;
       bg = background_dark;
     };
     "ui.statusline.normal" = {

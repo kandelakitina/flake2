@@ -1,18 +1,17 @@
+{ config, pkgs, ... }:
+let
+  inherit (config) colorScheme;
+in
 {
-  inputs,
-  pkgs,
-  config,
-  ...
-}: {
   imports = [./languages.nix];
 
   programs.helix = {
     enable = true;
 
-    themes = import ./themes.nix;
+    themes = import ./themes.nix { inherit colorScheme; };
 
     settings = {
-      theme = "boticelli_iTerm";
+      theme = colorScheme.slug;
       # "catppuccin_"
       # + (
       #   if config.theme.name == "light"
