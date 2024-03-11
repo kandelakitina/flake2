@@ -11,7 +11,7 @@ in
     themes = import ./themes.nix { inherit colorScheme; };
 
     settings = {
-      theme = colorScheme.slug;
+      theme = "nix-${colorScheme.slug}";
       # "catppuccin_"
       # + (
       #   if config.theme.name == "light"
