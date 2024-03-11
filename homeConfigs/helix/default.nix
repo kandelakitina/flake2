@@ -9,41 +9,8 @@
   programs.helix = {
     enable = true;
 
-    extraPackages = with pkgs;
-    with nodePackages; [
-      vscode-langservers-extracted
-      vscode-css-languageserver-bin
-      typescript
-      typescript-language-server
-      marksman
-      nil
-      nixpkgs-fmt
-      lua-language-server
-      bash-language-server
-    ];
-
-    # package = inputs.helix.packages.${pkgs.system}.default.overrideAttrs (old: {
-    #   makeWrapperArgs = with pkgs;
-    #     old.makeWrapperArgs
-    #     or []
-    #     ++ [
-    #       "--suffix"
-    #       "PATH"
-    #       ":"
-    #       (lib.makeBinPath [
-    #         clang-tools
-    #         marksman
-    #         nil
-    #         nodePackages.bash-language-server
-    #         nodePackages.vscode-css-languageserver-bin
-    #         nodePackages.vscode-langservers-extracted
-    #         shellcheck
-    #       ])
-    #     ];
-    # });
-
     settings = {
-      theme = "dracula_at_night";
+      theme = "kanagawa";
       # "catppuccin_"
       # + (
       #   if config.theme.name == "light"
@@ -120,8 +87,6 @@
 
         "C-j" = [ "extend_to_line_bounds" "delete_selection" "paste_after" ];
         "C-k" = [ "extend_to_line_bounds" "delete_selection" "move_line_up" "paste_before" ];
-        space."[" = [ "open_below" "move_line_up" "normal_mode" ];
-        space."]" = [ "open_above" "move_line_down" "normal_mode" ];
 
         # "C-(" = [ "rotate_selection_contents_backward" ];
         # "C-)" = [ "rotate_selection_contents_forward" ];
@@ -140,5 +105,39 @@
         W = ":set whitespace.render none";
       };
     };
+
+    extraPackages = with pkgs;
+    with nodePackages; [
+      vscode-langservers-extracted
+      vscode-css-languageserver-bin
+      typescript
+      typescript-language-server
+      marksman
+      nil
+      nixpkgs-fmt
+      lua-language-server
+      bash-language-server
+    ];
+
+    # package = inputs.helix.packages.${pkgs.system}.default.overrideAttrs (old: {
+    #   makeWrapperArgs = with pkgs;
+    #     old.makeWrapperArgs
+    #     or []
+    #     ++ [
+    #       "--suffix"
+    #       "PATH"
+    #       ":"
+    #       (lib.makeBinPath [
+    #         clang-tools
+    #         marksman
+    #         nil
+    #         nodePackages.bash-language-server
+    #         nodePackages.vscode-css-languageserver-bin
+    #         nodePackages.vscode-langservers-extracted
+    #         shellcheck
+    #       ])
+    #     ];
+    # });
+
   };
 }
