@@ -9,8 +9,10 @@
   programs.helix = {
     enable = true;
 
+    themes = import ./themes.nix;
+
     settings = {
-      theme = "dracula_at_night";
+      theme = "boticelli_iTerm";
       # "catppuccin_"
       # + (
       #   if config.theme.name == "light"
