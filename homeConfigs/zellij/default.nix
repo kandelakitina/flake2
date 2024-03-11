@@ -5,8 +5,9 @@
   config,
   ...
 }:
-
-{
+let
+  inherit (config.colorscheme) colors;
+in {
   imports = [
     ./sesh.nix
   ];

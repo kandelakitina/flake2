@@ -41,7 +41,8 @@
     # ./nvim.nix
   ];
 
-  colorscheme = inputs.nix-colors.colorSchemes.kanagawa;
+  colorScheme = import ./dracula_at_night.nix;
+  # colorscheme = inputs.nix-colors.colorSchemes.tokyo-night-dark;
 
   # FIXME: Does not have effect
   # Environment

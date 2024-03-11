@@ -10,7 +10,7 @@
     enable = true;
 
     settings = {
-      theme = "kanagawa";
+      theme = "dracula_at_night";
       # "catppuccin_"
       # + (
       #   if config.theme.name == "light"
