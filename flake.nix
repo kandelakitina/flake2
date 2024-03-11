@@ -21,8 +21,7 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     nixgl.url = "github:nix-community/nixGL";
 
-    # TODO: implement:
-    # nix-colors.url = "github:misterio77/nix-colors";
+    nix-colors.url = "github:misterio77/nix-colors";
     
     zjstatus.url = "github:dj95/zjstatus";
 
