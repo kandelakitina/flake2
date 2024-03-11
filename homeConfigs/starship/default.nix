@@ -19,11 +19,18 @@
           show_always = true;
         };
         hostname = {
-          ssh_only = false;
+          ssh_only = true;
           ssh_symbol = "🌐 ";
           format = "on [$hostname](bold red) ";
           trim_at = ".local";
           disabled = false;
+        };
+        cmd_duration = {
+          disabled = true;
+        };
+        directory = {
+          truncate_to_repo = true;
+          format = "at [$path]($style)[$read_only]($read_only_style) ";
         };
       };
     };
