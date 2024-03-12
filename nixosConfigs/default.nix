@@ -9,26 +9,24 @@
 
   imports = [
     # Import home-manager's NixOS module
-    inputs.home-manager.nixosModules.home-manager
+    # inputs.home-manager.nixosModules.home-manager
 
     # simple flake to solve 'command-not-found' issue
     inputs.flake-programs-sqlite.nixosModules.programs-sqlite
-
-    # Proxy
-    ./v2ray
-
-    # GNOME
-    ./gnome
 
   ]
   ++ (builtins.attrValues outputs.nixosModules); 
 
   # programs.hyprland.enable = true;
 
-  home-manager.extraSpecialArgs = {
-    inherit inputs outputs;
-  };
+  # home-manager.extraSpecialArgs = {
+  #   inherit inputs outputs;
+  # };
   networking.networkmanager.enable = true;
+
+  environment.shellAliases = {
+    nrs = "sudo nixos-rebuild switch --flake .#${config.networking.hostName}";
+  };
 
   environment.systemPackages = with pkgs; [
     helix

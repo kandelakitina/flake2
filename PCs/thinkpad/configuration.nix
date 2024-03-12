@@ -6,6 +6,7 @@
   lib,
   config,
   pkgs,
+  # hostName,
   ...
 }: {
   # You can import other NixOS modules here
@@ -15,6 +16,9 @@
     ./hardware-configuration.nix
 
     ../../nixosConfigs/default.nix
+    ../../nixosConfigs/v2ray
+    ../../nixosConfigs/gnome
+
     ./users/boticelli.nix
 
     # ../../nixosConfigs/extra/auto-hibernate.nix
@@ -31,11 +35,9 @@
 
   networking = {
     hostName = "thinkpad";
+    # inherit hostName;
   };
 
-  environment.shellAliases = {
-    nrs = "sudo nixos-rebuild switch --flake .#${config.networking.hostName}";
-  };
 
   nixpkgs = {
     overlays =

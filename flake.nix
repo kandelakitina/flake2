@@ -22,14 +22,13 @@
     nixgl.url = "github:nix-community/nixGL";
 
     nix-colors.url = "github:misterio77/nix-colors";
-    
+
     zjstatus.url = "github:dj95/zjstatus";
 
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;
     };
-    
   };
 
   outputs = {
@@ -54,7 +53,7 @@
   in {
     # Your custom packages
     # Accessible through 'nix build', 'nix shell', etc
-    packages = forAllSystems (system: import ./pkgs { pkgs = nixpkgs.legacyPackages.${system}; });
+    packages = forAllSystems (system: import ./pkgs {pkgs = nixpkgs.legacyPackages.${system};});
     # Formatter for your nix files, available through 'nix fmt'
     # Other options beside 'alejandra' include 'nixpkgs-fmt'
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
@@ -75,6 +74,7 @@
       thinkpad = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs;
+          hostName = "thinkpad";
           # TODO: delete this line
           # pkgs = nixpkgs.legacyPackages.x86_64-linux;
         };
@@ -90,9 +90,12 @@
     homeConfigurations = {
       "boticelli@thinkpad" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {
+          inherit inputs outputs;
+          hostName = "thinkpad";
+          username = "boticelli";
+        };
         modules = [
-          # > Our main home-manager configuration file <
           ./homeConfigs/boticelli/thinkpad
         ];
       };

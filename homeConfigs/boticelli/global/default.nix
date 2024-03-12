@@ -6,12 +6,25 @@
   lib,
   config,
   pkgs,
+  hostName,
   ...
 }: {
   # You can import other home-manager modules here
   imports = [
     #...
   ];
+
+  # FIXME: Does not have effect
+  # Environment
+  home.sessionVariables = {
+    EDITOR = "hx";
+    BROWSER = "firefox";
+    TERMINAL = "alacritty";
+  };
+
+  home.shellAliases = {
+    # hms = "home-manager switch --flake .#${config.home.username}.${hostName}";
+  };
 
   nixpkgs = {
     overlays =
@@ -27,9 +40,8 @@
     };
   };
 
-
   # home.packages = [pkgs.nixgl.nixGLIntel];
-  
+
   # nixpkgs = {
   #   # You can add overlays here
   #   overlays = [
@@ -67,4 +79,3 @@
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.11";
 }
-

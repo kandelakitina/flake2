@@ -44,14 +44,6 @@
   # colorScheme = import ./colorschemes/dracula_at_night.nix;
   # colorscheme = inputs.nix-colors.colorSchemes.tokyo-night-dark;
 
-  # FIXME: Does not have effect
-  # Environment
-  home.sessionVariables = {
-    EDITOR = "hx";
-    BROWSER = "firefox";
-    TERMINAL = "alacritty";
-  };
-
   nixpkgs = {
     overlays =
       builtins.attrValues outputs.overlays
@@ -63,9 +55,9 @@
   };
 
   # TODO: Set your username
-  home = {
+  home = rec {
     username = "boticelli";
-    homeDirectory = "/home/boticelli";
+    homeDirectory = "/home/${username}";
   };
 
   # Add stuff for your user as you see fit:
