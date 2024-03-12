@@ -1,28 +1,32 @@
 {colorScheme}: let
-  background = "#${colorScheme.palette.base00}";
-  background_dark = "#${colorScheme.palette.base01}";
-  purple = "#${colorScheme.palette.base03}";
-  foreground = "#${colorScheme.palette.base04}";
-  red = "#${colorScheme.palette.base08}";
-  orange = "#${colorScheme.palette.base09}";
-  yellow = "#${colorScheme.palette.base0A}";
-  green = "#${colorScheme.palette.base0B}";
-  cyan = "#${colorScheme.palette.base0C}";
-  pink = "#${colorScheme.palette.base07}";
-  black = "#${colorScheme.palette.base00}";
-  blue = "#${colorScheme.palette.base0D}";
+  backgroundDeepBlue = "#${colorScheme.palette.base00}"; # Deep Blue (background)
+  black = "#${colorScheme.palette.base01}"; # Black
+  lightBlack = "#${colorScheme.palette.base02}"; # Light Black
+  magenta = "#${colorScheme.palette.base03}"; # Magenta (purple)
+  lightMagenta = "#${colorScheme.palette.base07}"; # Light Magenta (purple)
+  foregroundOffWhite = "#${colorScheme.palette.base04}"; # Off White (foreground)
+  pureWhite = "#${colorScheme.palette.base05}"; # White (pure)
+  defaultWhite = "#${colorScheme.palette.base06}"; # White (default)
+  red = "#${colorScheme.palette.base08}"; # Red
+  yellow = "#${colorScheme.palette.base09}"; # Yellow
+  lightYellow = "#${colorScheme.palette.base0A}"; # Light Yellow
+  green = "#${colorScheme.palette.base0B}"; # Green
+  cyan = "#${colorScheme.palette.base0C}"; # Cyan
+  blue = "#${colorScheme.palette.base0D}"; # Blue
+  lightRed = "#${colorScheme.palette.base0E}"; # Light Red
+  lightBlue = "#${colorScheme.palette.base0F}"; # Light Blue
 in {
   "nix-${colorScheme.slug}" = {
-    fg = foreground;
-    bg = background;
-    red = red;
-    green = green;
-    yellow = yellow;
+    fg = lightBlack; # Buttons' colors
+    red = lightBlue; # Keybinds on buttons
+    black = backgroundDeepBlue; # Bars background and "LOCK" etc
+    green = green; # Panes' borders and tabs button color
+    bg = backgroundDeepBlue; # ???
+    yellow = yellow; # ???
     blue = blue;
-    magenta = purple;
+    magenta = magenta;
     cyan = cyan;
-    white = foreground;
-    orange = orange;
-    black = black;
+    white = defaultWhite;
+    orange = lightYellow;
   };
 }
