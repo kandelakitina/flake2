@@ -8,7 +8,7 @@
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in {
 
-  home-manager.users.boticelli = import ./home.nix ;
+  home-manager.users.boticelli = import ../../../homeConfigs/boticelli/${config.networking.hostName};
   
   # sops.secrets.haseeb-password = {
   #   sopsFile = ./secrets.yaml;

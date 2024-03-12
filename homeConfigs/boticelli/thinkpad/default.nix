@@ -10,26 +10,25 @@
 }: {
   # You can import other home-manager modules here
   imports = [
-
     ./options.nix
-    
-    ../../homeConfigs/default.nix
 
-    ../../homeConfigs/alacritty
-    ../../homeConfigs/fish
-    ../../homeConfigs/nnn
-    ../../homeConfigs/zellij
-    ../../homeConfigs/fonts
-    ../../homeConfigs/git
-    ../../homeConfigs/starship
-    ../../homeConfigs/helix
-    ../../homeConfigs/cliTools
-    ../../homeConfigs/cheatSheets
-    ../../homeConfigs/direnv
-    ../../homeConfigs/firefox
+    ../global
 
-    # ../../homeConfigs/gaming
-    # ../../homeConfigs/atuin
+    ../extra/alacritty
+    ../extra/fish
+    ../extra/nnn
+    ../extra/zellij
+    ../extra/fonts
+    ../extra/git
+    ../extra/starship
+    ../extra/helix
+    ../extra/cliTools
+    ../extra/cheatSheets
+    ../extra/direnv
+    ../extra/firefox
+
+    # ../extra/gaming
+    # ../extra/atuin
 
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
@@ -41,7 +40,7 @@
     # ./nvim.nix
   ];
 
-  colorScheme = import ./colorschemes/iterm.nix;
+  colorScheme = import ../colorschemes/iterm.nix;
   # colorScheme = import ./colorschemes/dracula_at_night.nix;
   # colorscheme = inputs.nix-colors.colorSchemes.tokyo-night-dark;
 
@@ -59,6 +58,7 @@
       ++ [
         # inputs.nixneovimplugins.overlays.default
         # inputs.neovim-nightly-overlay.overlay
+        inputs.nixgl.overlay
       ];
   };
 

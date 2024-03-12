@@ -15,7 +15,7 @@
     ./hardware-configuration.nix
 
     ../../nixosConfigs/default.nix
-    ../../users/boticelli/default.nix
+    ./users/boticelli.nix
 
     # ../../nixosConfigs/extra/auto-hibernate.nix
     # ../../nixosConfigs/extra/bluetooth.nix
