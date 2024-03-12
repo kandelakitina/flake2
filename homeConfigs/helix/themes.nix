@@ -112,7 +112,7 @@ in {
     };
     "ui.statusline.insert" = {
       fg = background_dark;
-      bg = green;
+      bg = red;
     };
     "ui.statusline.select" = {
       fg = background_dark;
