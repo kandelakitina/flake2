@@ -23,7 +23,7 @@
   };
 
   home.shellAliases = {
-    # hms = "home-manager switch --flake .#${config.home.username}.${hostName}";
+    hms = "home-manager switch --flake .#${config.home.username}@${hostName}";
   };
 
   nixpkgs = {

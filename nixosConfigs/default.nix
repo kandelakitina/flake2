@@ -8,7 +8,8 @@
 }: {
 
   imports = [
-    # Import home-manager's NixOS module
+
+    # Uncomment if using Home Manager as NixOS module
     # inputs.home-manager.nixosModules.home-manager
 
     # simple flake to solve 'command-not-found' issue
@@ -19,9 +20,11 @@
 
   # programs.hyprland.enable = true;
 
-  # home-manager.extraSpecialArgs = {
+  # Uncomment if using Home Manager as NixOS module
+  # home-manager.extraSpecialArgs = {  
   #   inherit inputs outputs;
   # };
+
   networking.networkmanager.enable = true;
 
   environment.shellAliases = {

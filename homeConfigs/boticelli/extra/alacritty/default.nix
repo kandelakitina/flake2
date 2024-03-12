@@ -67,75 +67,75 @@
       # };
       colors = {
         primary = {
-          background = "#${config.colorscheme.colors.base00}";
-          foreground = "#${config.colorscheme.colors.base05}";
-          dim_foreground = "#${config.colorscheme.colors.base05}";
-          bright_foreground = "#${config.colorscheme.colors.base05}";
+          background = "#${config.colorscheme.palette.base00}";
+          foreground = "#${config.colorscheme.palette.base05}";
+          dim_foreground = "#${config.colorscheme.palette.base05}";
+          bright_foreground = "#${config.colorscheme.palette.base05}";
         };
         cursor = {
-          text = "#${config.colorscheme.colors.base00}";
-          cursor = "#${config.colorscheme.colors.base06}";
+          text = "#${config.colorscheme.palette.base00}";
+          cursor = "#${config.colorscheme.palette.base06}";
         };
         vi_mode_cursor = {
-          text = "#${config.colorscheme.colors.base00}";
-          cursor = "#${config.colorscheme.colors.base07}";
+          text = "#${config.colorscheme.palette.base00}";
+          cursor = "#${config.colorscheme.palette.base07}";
         };
         search = {
           matches = {
-            foreground = "#${config.colorscheme.colors.base00}";
+            foreground = "#${config.colorscheme.palette.base00}";
             background = "#A5ADCE";
           };
           focused_match = {
-            foreground = "#${config.colorscheme.colors.base00}";
-            background = "#${config.colorscheme.colors.base0B}";
+            foreground = "#${config.colorscheme.palette.base00}";
+            background = "#${config.colorscheme.palette.base0B}";
           };
           footer_bar = {
-            foreground = "#${config.colorscheme.colors.base00}";
+            foreground = "#${config.colorscheme.palette.base00}";
             background = "#A5ADCE";
           };
         };
         hints = {
           start = {
-            foreground = "#${config.colorscheme.colors.base00}";
-            background = "#${config.colorscheme.colors.base0A}";
+            foreground = "#${config.colorscheme.palette.base00}";
+            background = "#${config.colorscheme.palette.base0A}";
           };
           end = {
-            foreground = "#${config.colorscheme.colors.base00}";
+            foreground = "#${config.colorscheme.palette.base00}";
             background = "#A5ADCE";
           };
         };
         selection = {
-          text = "#${config.colorscheme.colors.base00}";
-          background = "#${config.colorscheme.colors.base06}";
+          text = "#${config.colorscheme.palette.base00}";
+          background = "#${config.colorscheme.palette.base06}";
         };
         normal = {
           black = "#51576D";
-          red = "#${config.colorscheme.colors.base08}";
-          green = "#${config.colorscheme.colors.base0B}";
-          yellow = "#${config.colorscheme.colors.base0A}";
-          blue = "#${config.colorscheme.colors.base0D}";
+          red = "#${config.colorscheme.palette.base08}";
+          green = "#${config.colorscheme.palette.base0B}";
+          yellow = "#${config.colorscheme.palette.base0A}";
+          blue = "#${config.colorscheme.palette.base0D}";
           magenta = "#7b5cb0";
-          cyan = "#${config.colorscheme.colors.base0C}";
+          cyan = "#${config.colorscheme.palette.base0C}";
           white = "#B5BFE2";
         };
         bright = {
           black = "#626880";
-          red = "#${config.colorscheme.colors.base08}";
-          green = "#${config.colorscheme.colors.base0B}";
-          yellow = "#${config.colorscheme.colors.base0A}";
-          blue = "#${config.colorscheme.colors.base0D}";
+          red = "#${config.colorscheme.palette.base08}";
+          green = "#${config.colorscheme.palette.base0B}";
+          yellow = "#${config.colorscheme.palette.base0A}";
+          blue = "#${config.colorscheme.palette.base0D}";
           magenta = "#a47de9";
-          cyan = "#${config.colorscheme.colors.base0C}";
+          cyan = "#${config.colorscheme.palette.base0C}";
           white = "#A5ADCE";
         };
         dim = {
           black = "#51576D";
-          red = "#${config.colorscheme.colors.base08}";
-          green = "#${config.colorscheme.colors.base0B}";
-          yellow = "#${config.colorscheme.colors.base0A}";
-          blue = "#${config.colorscheme.colors.base0D}";
+          red = "#${config.colorscheme.palette.base08}";
+          green = "#${config.colorscheme.palette.base0B}";
+          yellow = "#${config.colorscheme.palette.base0A}";
+          blue = "#${config.colorscheme.palette.base0D}";
           magenta = "#F4B8E4";
-          cyan = "#${config.colorscheme.colors.base0C}";
+          cyan = "#${config.colorscheme.palette.base0C}";
           white = "#B5BFE2";
         };
         indexed_colors = [
@@ -145,7 +145,7 @@
           }
           {
             index = 17;
-            color = "#${config.colorscheme.colors.base06}";
+            color = "#${config.colorscheme.palette.base06}";
           }
         ];
       };
