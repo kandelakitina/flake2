@@ -1,15 +1,28 @@
-{colorScheme}: {
+{colorScheme}: let
+  background = "#${colorScheme.palette.base00}";
+  background_dark = "#${colorScheme.palette.base01}";
+  purple = "#${colorScheme.palette.base03}";
+  foreground = "#${colorScheme.palette.base04}";
+  red = "#${colorScheme.palette.base08}";
+  orange = "#${colorScheme.palette.base09}";
+  yellow = "#${colorScheme.palette.base0A}";
+  green = "#${colorScheme.palette.base0B}";
+  cyan = "#${colorScheme.palette.base0C}";
+  pink = "#${colorScheme.palette.base07}";
+  black = "#${colorScheme.palette.base00}";
+  blue = "#${colorScheme.palette.base0D}";
+in {
   "nix-${colorScheme.slug}" = {
-    fg = "#${colorScheme.palette.base04}";
-    bg = "#${colorScheme.palette.base00}";
-    red = "#${colorScheme.palette.base08}";
-    green = "#${colorScheme.palette.base0B}";
-    yellow = "#${colorScheme.palette.base0A}";
-    blue = "#${colorScheme.palette.base0D}";
-    magenta = "#${colorScheme.palette.base03}";
-    cyan = "#${colorScheme.palette.base0C}";
-    white = "#${colorScheme.palette.base04}";
-    orange = "#${colorScheme.palette.base09}";
-    black = "#${colorScheme.palette.base01}";
+    fg = foreground;
+    bg = background;
+    red = red;
+    green = green;
+    yellow = yellow;
+    blue = blue;
+    magenta = purple;
+    cyan = cyan;
+    white = foreground;
+    orange = orange;
+    black = black;
   };
 }
