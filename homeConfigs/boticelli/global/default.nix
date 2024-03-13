@@ -40,8 +40,6 @@
     };
   };
 
-  # home.packages = [pkgs.nixgl.nixGLIntel];
-
   # nixpkgs = {
   #   # You can add overlays here
   #   overlays = [
@@ -78,4 +76,10 @@
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.11";
+
+  news = {
+    display = "silent";
+    json = lib.mkForce {};
+    entries = lib.mkForce [];
+  };
 }
