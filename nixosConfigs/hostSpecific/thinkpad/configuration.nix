@@ -11,33 +11,30 @@
 }: {
   # You can import other NixOS modules here
   imports = [
-    inputs.hardware.nixosModules.lenovo-thinkpad-x1-7th-gen
+    # inputs.hardware.nixosModules.lenovo-thinkpad-x1-7th-gen
 
     ./hardware-configuration.nix
 
-    ../../nixosConfigs/default.nix
-    ../../nixosConfigs/v2ray
-    ../../nixosConfigs/gnome
+    ../../userSpecific/boticelli.nix
 
-    ./users/boticelli.nix
+    ../../minimal/default.nix
 
-    # ../../nixosConfigs/extra/auto-hibernate.nix
-    # ../../nixosConfigs/extra/bluetooth.nix
-    # ../../nixosConfigs/extra/fingerprint.nix
-    # ../../nixosConfigs/extra/powerManagement.nix
-    # ../../nixosConfigs/extra/gaming.nix
-
-    # ../../nixosConfigs/extra/virtualisation.nix
-    # ../../nixosConfigs/extra/openGL.nix
-    # ../../nixosConfigs/extra/auto-upgrade.nix
-
+    # ../../optional/auto-hibernate.nix
+    # ../../optional/auto-upgrade.nix
+    # ../../optional/bluetooth.nix
+    # ../../optional/fingerprint.nix
+    # ../../optional/gaming.nix
+    ../../optional/gnome.nix
+    # ../../optional/openGL.nix
+    # ../../optional/powerManagement.nix
+    # ../../optional/v2ray.nix
+    # ../../optional/virtualisation.nix
   ];
 
   networking = {
     hostName = "thinkpad";
     # inherit hostName;
   };
-
 
   nixpkgs = {
     overlays =
@@ -52,7 +49,7 @@
   environment.systemPackages = with pkgs; [
     # nixgl.nixGLIntel
   ];
- 
+
   # modules.nixos = {
   #   avahi.enable = true;
   #   auto-hibernate.enable = false;
@@ -69,7 +66,7 @@
   # };
 
   # Dual boot
-  boot = { 
+  boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     # initrd.kernelModules = ["nvidia_x11"];
     loader = {
@@ -79,7 +76,7 @@
         efiSysMountPoint = "/boot";
         # /boot will probably work too
       };
-      grub  = {
+      grub = {
         enable = true;
         configurationLimit = 5;
         #device = ["nodev"];
@@ -90,7 +87,7 @@
         useOSProber = true;
         # OSProber looks for installed systems
         # Or use extraEntries like seen with Legacy
-        # OSProber will probably not find windows partition on first install. 
+        # OSProber will probably not find windows partition on first install.
         # Just do a rebuild than.
       };
     };

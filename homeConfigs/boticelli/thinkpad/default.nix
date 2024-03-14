@@ -66,5 +66,5 @@
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
 
-  home.packages = [pkgs.nixgl.nixGLIntel];
+  home.packages = with pkgs; [nixgl.nixGLIntel];
 }

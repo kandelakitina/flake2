@@ -89,7 +89,7 @@
         };
         modules = [
           # > Our main nixos configuration file <
-          ./PCs/thinkpad/configuration.nix
+          ./nixosConfigs/hostSpecific/thinkpad/configuration.nix
         ];
       };
     };
