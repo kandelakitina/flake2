@@ -1,0 +1,8 @@
+keys:
+  - &hosts:
+    - &thinkpad age1tqw6qqvg7h6mtftuv8xr5k0ytchscsllqme8sep0e4thxh4r0p7qxy5r3a
+creation_rules:
+  - path_regex: PCs/thinkpad/users/secrets.ya?ml$
+    key_groups:
+    - age:
+      - *thinkpad
