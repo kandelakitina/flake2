@@ -11,26 +11,27 @@
 }: {
   # You can import other home-manager modules here
   imports = [
+
+    # Defines options, like fonts, for specific machine
     ./options.nix
 
-    ../global
+    ../../minimal
 
-    ../extra/alacritty
-    ../extra/fish
-    ../extra/nnn
-    ../extra/zellij
-    ../extra/fonts
-    ../extra/git
-    ../extra/starship
-    ../extra/helix
-    ../extra/cliTools
-    ../extra/cheatSheets
-    ../extra/direnv
-    ../extra/firefox
-    ../extra/sops
-
-    # ../extra/gaming
-    # ../extra/atuin
+    ../../optional/alacritty
+    # ../../optional/atuin
+    ../../optional/cheatSheets
+    ../../optional/cliTools
+    ../../optional/direnv
+    ../../optional/firefox
+    ../../optional/fish
+    ../../optional/fonts
+    # ../../optional/gaming
+    ../../optional/git
+    ../../optional/helix
+    ../../optional/nnn
+    ../../optional/sops
+    ../../optional/starship
+    ../../optional/zellij
 
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
@@ -42,7 +43,7 @@
     # ./nvim.nix
   ];
 
-  colorScheme = import ../colorschemes/iterm.nix;
+  colorScheme = import ../../colorschemes/iterm.nix;
   # colorScheme = import ./colorschemes/dracula_at_night.nix;
   # colorscheme = inputs.nix-colors.colorSchemes.tokyo-night-dark;
 

@@ -42,13 +42,8 @@
       ++ [
         # inputs.nixneovimplugins.overlays.default
         # inputs.neovim-nightly-overlay.overlay
-        inputs.nixgl.overlay
       ];
   };
-
-  environment.systemPackages = with pkgs; [
-    # nixgl.nixGLIntel
-  ];
 
   # modules.nixos = {
   #   avahi.enable = true;

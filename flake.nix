@@ -105,7 +105,7 @@
           username = "boticelli";
         };
         modules = [
-          ./homeConfigs/boticelli/thinkpad
+          ./homeConfigs/boticelli/hostSpecific/thinkpad/home.nix
         ];
       };
     };
