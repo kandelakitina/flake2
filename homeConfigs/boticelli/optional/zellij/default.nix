@@ -13,7 +13,7 @@ in {
 
   home.packages = [
     # pkgs.tmate
-    inputs.zjstatus.packages.${pkgs.system}.default
+    # inputs.zjstatus.packages.${pkgs.system}.default
   ];
 
   xdg.configFile = {

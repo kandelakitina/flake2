@@ -23,7 +23,7 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
 
-    zjstatus.url = "github:dj95/zjstatus";
+    # zjstatus.url = "github:dj95/zjstatus";
 
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
@@ -41,7 +41,7 @@
     self,
     nixpkgs,
     home-manager,
-    zjstatus,
+    # zjstatus,
     ...
   } @ inputs: let
     inherit (self) outputs;
