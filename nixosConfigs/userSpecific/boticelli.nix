@@ -19,6 +19,7 @@ in {
   # users.mutableUsers = false;
 
   users.users.boticelli = {
+    ignoreShellProgramCheck = true;
     isNormalUser = true;
     shell = pkgs.fish;
     extraGroups =
