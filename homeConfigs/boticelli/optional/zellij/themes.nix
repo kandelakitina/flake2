@@ -18,15 +18,15 @@
 in {
   "nix-${colorScheme.slug}" = {
     fg = lightBlack; # Buttons' colors
-    red = yellow; # Keybinds on buttons
+    red = green; # Keybinds on buttons
     black = backgroundDeepBlue; # Bars background and "LOCK" etc
-    green = green; # Panes' borders and tabs button color
+    green = magenta; # Panes' borders, tabs button, secondary keys in Tips
     bg = backgroundDeepBlue; # ???
-    yellow = red; # ???
+    yellow = green; 
     blue = blue;
     magenta = magenta;
     cyan = red;
-    white = defaultWhite;
-    orange = lightYellow;
+    white = yellow;
+    orange = cyan;
   };
 }
