@@ -15,7 +15,7 @@
     # fuzzy finder
     fzf = {
       enable = true;
-      enableFishIntegration = false;
+      enableFishIntegration = true;
     };
 
     # better ctrl-r history search (replaces fzf)

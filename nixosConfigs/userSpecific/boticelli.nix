@@ -50,5 +50,5 @@ in {
     packages = [pkgs.home-manager];
   };
 
-  programs.fish.enable = true;
+  # programs.fish.enable = true;
 }
