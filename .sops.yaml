@@ -1,6 +1,6 @@
 keys:
   - &hosts:
-    - &thinkpad age1tqw6qqvg7h6mtftuv8xr5k0ytchscsllqme8sep0e4thxh4r0p7qxy5r3a
+    - &thinkpad age15hqvz3dr8qkpxlx5xxf5umaysyrnkkz6rk4rly7l60n70pmwlpkspncdr8
 creation_rules:
   - path_regex: nixosConfigs/userSpecific/passwords.ya?ml$
     key_groups:

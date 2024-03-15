@@ -1,6 +1,8 @@
 { outputs, lib, config, ... }:
 
 let
+
+  # This is to add all hosts from flake.nix to knownhosts
   inherit (config.networking) hostName;
   hosts = outputs.nixosConfigurations;
   pubKey = host: ../hostSpecific/${host}/ssh_host_ed25519_key.pub;
