@@ -15,7 +15,9 @@ in {
     neededForUsers = true;
   };
 
-  #users.mutableUsers = false;
+  # Allows changing password from hashedPassowrd in ordinary way
+  # users.mutableUsers = false;
+
   users.users.boticelli = {
     isNormalUser = true;
     shell = pkgs.fish;
