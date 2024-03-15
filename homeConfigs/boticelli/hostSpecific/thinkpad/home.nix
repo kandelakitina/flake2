@@ -53,13 +53,13 @@
       ++ [
         # inputs.nixneovimplugins.overlays.default
         # inputs.neovim-nightly-overlay.overlay
-        inputs.nixgl.overlay
+        # inputs.nixgl.overlay
       ];
   };
 
   # TODO: Set your username
   home = {
-    inherit username;
+    username = "boticelli";
     homeDirectory = "/home/${username}";
   };
 
@@ -67,5 +67,5 @@
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
 
-  home.packages = with pkgs; [nixgl.nixGLIntel];
+  # home.packages = with pkgs; [nixgl.nixGLIntel];
 }
