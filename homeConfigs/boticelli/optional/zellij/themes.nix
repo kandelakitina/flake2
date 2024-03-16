@@ -22,7 +22,7 @@ in {
     black = backgroundDeepBlue; # Bars background and "LOCK" etc
     green = magenta; # Panes' borders, tabs button, secondary keys in Tips
     bg = backgroundDeepBlue; # ???
-    yellow = green; 
+    yellow = yellow; 
     blue = blue;
     magenta = magenta;
     cyan = red;
