@@ -5,7 +5,7 @@ let
   # This is to add all hosts from flake.nix to knownhosts
   inherit (config.networking) hostName;
   hosts = outputs.nixosConfigurations;
-  pubKey = host: ../hostSpecific/${host}/ssh_host_ed25519_key.pub;
+  pubKey = host: ../hostSpecific/${host}/ssh_host_ed25519.pub;
   # gitHost = hosts."thinkpad".config.networking.hostName;
 
   # Sops needs acess to the keys before the persist dirs are even mounted; so
@@ -26,8 +26,8 @@ in
     };
 
     hostKeys = [{
-      # path = "${lib.optionalString hasOptinPersistence "/persist"}/etc/ssh/ssh_host_ed25519_key";
-      path = "/etc/ssh/ssh_host_ed25519_key";
+      # path = "${lib.optionalString hasOptinPersistence "/persist"}/etc/ssh/ssh_host_ed25519";
+      path = "/etc/ssh/ssh_host_ed25519";
       type = "ed25519";
     }];
   };

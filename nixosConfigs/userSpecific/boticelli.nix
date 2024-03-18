@@ -44,7 +44,7 @@ in {
 
     initialPassword = "password";
     openssh.authorizedKeys.keys = [
-      (builtins.readFile ../../homeConfigs/boticelli/id_ed25519.pub )
+      (builtins.readFile ../../homeConfigs/boticelli/boticelli_ed25519.pub )
     ];
 
     # hashedPasswordFile = config.sops.secrets.boticelli-password.path;
