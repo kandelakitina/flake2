@@ -1,8 +1,13 @@
 keys:
+  - &users:
+    - &boticelli B9A4 275C D701 55C2 6CAD  A7A1 C983 E655 27C2 EB07
   - &hosts:
     - &thinkpad age15hqvz3dr8qkpxlx5xxf5umaysyrnkkz6rk4rly7l60n70pmwlpkspncdr8
 creation_rules:
   - path_regex: nixosConfigs/userSpecific/passwords.ya?ml$
     key_groups:
-    - age:
-      - *thinkpad
+    # - age:
+    #   - *thinkpad
+    - pgp:
+      - *boticelli
+          
