@@ -28,6 +28,7 @@
     ../../optional/fonts
     # ../../optional/gaming
     ../../optional/git
+    ../../optional/gpg
     ../../optional/helix
     ../../optional/nnn
     ../../optional/sops

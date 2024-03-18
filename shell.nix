@@ -17,6 +17,7 @@
       home-manager
       git
 
+      pinentry-curses
       sops
       ssh-to-age
       gnupg
