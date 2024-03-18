@@ -19,9 +19,10 @@
 
     ../../optional/alacritty
     # ../../optional/atuin
+    ../../optional/bitwarden
     ../../optional/cheatSheets
     ../../optional/cliTools
-    ../../optional/direnv
+    # ../../optional/direnv
     ../../optional/firefox
     ../../optional/fish
     ../../optional/fonts
