@@ -16,7 +16,7 @@ in {
   };
 
   # Allows changing password from hashedPassowrd in ordinary way
-  # users.mutableUsers = false;
+  users.mutableUsers = false;
 
   users.users.boticelli = {
     ignoreShellProgramCheck = true;
