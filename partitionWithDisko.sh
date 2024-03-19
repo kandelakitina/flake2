@@ -23,10 +23,9 @@ if ! [[ "$file_number" =~ ^[0-9]+$ ]] || [ "$file_number" -lt 1 ] || [ "$file_nu
   exit 1
 fi
 
-selected_file="${files[$file_number-1]}"
+selected_file="${files[$file_number - 1]}"
 
 # 5. Run the following script
 command="sudo nix --experimental-features \"nix-command flakes\" run github:nix-community/disko -- --mode disko ${selected_file} --arg device '\"/dev/${disk_name}\"'"
 echo "Running command: $command"
 eval "$command"
-

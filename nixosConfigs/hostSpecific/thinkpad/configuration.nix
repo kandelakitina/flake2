@@ -18,7 +18,7 @@
 
     ../../userSpecific/boticelli.nix
 
-    (import ../../../diskoConfigs/disko_config_btfrs.nix { device = "/dev/vda"; })
+    (import ../../../diskoConfigs/btfrs.nix { device = "/dev/vda"; })
 
     ../../minimal/default.nix
 
@@ -29,6 +29,7 @@
     # ../../optional/gaming.nix
     ../../optional/gnome.nix
     # ../../optional/openGL.nix
+    ../../optional/persistance.nix
     # ../../optional/powerManagement.nix
     # ../../optional/v2ray.nix
     # ../../optional/virtualisation.nix
