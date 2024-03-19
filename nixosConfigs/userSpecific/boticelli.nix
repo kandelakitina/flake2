@@ -10,13 +10,13 @@ in {
   # # Uncomment is using Home Manager as NixOS module
   # home-manager.users.boticelli = import ../../../homeConfigs/boticelli/${config.networking.hostName};
 
-  sops.secrets.boticelli-password = {
-   sopsFile = ./passwords.yaml;
-   neededForUsers = true;
-  };
+  # sops.secrets.boticelli-password = {
+  #  sopsFile = ./passwords.yaml;
+  #  neededForUsers = true;
+  # };
 
   # Allows changing password from hashedPassowrd in ordinary way
-  users.mutableUsers = false;
+  # users.mutableUsers = false;
 
   users.users.boticelli = {
     ignoreShellProgramCheck = true;
@@ -42,12 +42,12 @@ in {
         "plugdev"
       ];
 
-    # initialPassword = "password";
-    openssh.authorizedKeys.keys = [
-      (builtins.readFile ../../homeConfigs/boticelli/boticelli_ed25519.pub )
-    ];
+    initialPassword = "password";
+    # openssh.authorizedKeys.keys = [
+    #   (builtins.readFile ../../homeConfigs/boticelli/boticelli_ed25519.pub )
+    # ];
 
-    hashedPasswordFile = config.sops.secrets.boticelli-password.path;
+    # hashedPasswordFile = config.sops.secrets.boticelli-password.path;
     packages = [pkgs.home-manager];
   };
 
