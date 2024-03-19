@@ -8,7 +8,7 @@
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in {
   # # Uncomment is using Home Manager as NixOS module
-  home-manager.users.boticelli = import ../../../homeConfigs/boticelli/${config.networking.hostName};
+  home-manager.users.boticelli = import ../../homeConfigs/boticelli/hostSpecific/${config.networking.hostName}/home.nix;
 
   # sops.secrets.boticelli-password = {
   #  sopsFile = ./passwords.yaml;
