@@ -10,7 +10,7 @@
 
   fileSystems."/persist".neededForBoot = true;
   environment.persistence = {
-    "/persist" = {
+    "/persist/system" = {
       hideMounts = true;
       directories = [
         "/srv"
@@ -22,9 +22,6 @@
         "/var/lib/bluetooth"
         # "/var/lib/systemd/coredump"
         "/etc/NetworkManager/system-connections"
-
-        "/home/${config.username}/flake2"
-        "/home/${config.username}/.ssh"
       ];
       files = [
         "/etc/machine-id"
