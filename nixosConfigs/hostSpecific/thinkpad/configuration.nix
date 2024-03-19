@@ -18,7 +18,7 @@
 
     ../../userSpecific/boticelli.nix
 
-    ../../minimal/disko.nix { device = "/dev/vda"; }
+    ../../../diskoConfigs/disko_config_btfrs.nix { device = "/dev/vda"; }
 
     ../../minimal/default.nix
 

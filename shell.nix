@@ -22,6 +22,7 @@
       ssh-to-age
       gnupg
       age
+      disko
     ];
   };
 }
