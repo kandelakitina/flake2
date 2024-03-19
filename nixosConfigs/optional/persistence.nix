@@ -1,58 +1,33 @@
-{
-  inputs,
-  lib,
-  config,
-  ...
-}: {
+# This file defines the "non-hardware dependent" part of opt-in persistence
+# It imports impermanence, defines the basic persisted dirs, and ensures each
+# users' home persist dir exists and has the right permissions
+#
+# It works even if / is tmpfs, btrfs snapshot, or even not ephemeral at all.
+{ lib, inputs, config, ... }: {
   imports = [
     inputs.impermanence.nixosModules.impermanence
   ];
 
-  fileSystems."/persist".neededForBoot = true;
   environment.persistence = {
-    "/persist/system" = {
-      hideMounts = true;
+    "/persist" = {
       directories = [
-        "/srv"
-        "/etc/ssh"
         "/var/lib/systemd"
         "/var/lib/nixos"
-        "/var/db/sudo/lectured"
         "/var/log"
-        "/var/lib/bluetooth"
-        # "/var/lib/systemd/coredump"
-        "/etc/NetworkManager/system-connections"
-      ];
-      files = [
-        "/etc/machine-id"
-        # "/etc/nix/id_rsa"
+        "/srv"
       ];
     };
   };
   programs.fuse.userAllowOther = true;
 
-  boot.initrd.postDeviceCommands = lib.mkAfter ''
-    mkdir /btrfs_tmp
-    mount /dev/root_vg/root /btrfs_tmp
-    if [[ -e /btrfs_tmp/root ]]; then
-        mkdir -p /btrfs_tmp/old_roots
-        timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/root)" "+%Y-%m-%-d_%H:%M:%S")
-        mv /btrfs_tmp/root "/btrfs_tmp/old_roots/$timestamp"
-    fi
-
-    delete_subvolume_recursively() {
-        IFS=$'\n'
-        for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
-            delete_subvolume_recursively "/btrfs_tmp/$i"
-        done
-        btrfs subvolume delete "$1"
-    }
-
-    for i in $(find /btrfs_tmp/old_roots/ -maxdepth 1 -mtime +30); do
-        delete_subvolume_recursively "$i"
-    done
-
-    btrfs subvolume create /btrfs_tmp/root
-    umount /btrfs_tmp
-  '';
+  system.activationScripts.persistent-dirs.text =
+    let
+      mkHomePersist = user: lib.optionalString user.createHome ''
+        mkdir -p /persist/${user.home}
+        chown ${user.name}:${user.group} /persist/${user.home}
+        chmod ${user.homeMode} /persist/${user.home}
+      '';
+      users = lib.attrValues config.users.users;
+    in
+    lib.concatLines (map mkHomePersist users);
 }
