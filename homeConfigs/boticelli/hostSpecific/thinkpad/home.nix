@@ -31,7 +31,7 @@
     ../../optional/gpg
     ../../optional/helix
     ../../optional/nnn
-    ../../optional/persistance
+    ../../optional/persistence
     ../../optional/sops
     ../../optional/starship
     ../../optional/zellij

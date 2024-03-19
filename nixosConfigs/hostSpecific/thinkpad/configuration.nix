@@ -29,7 +29,7 @@
     # ../../optional/gaming.nix
     ../../optional/gnome.nix
     # ../../optional/openGL.nix
-    ../../optional/persistance.nix
+    ../../optional/persistence.nix
     # ../../optional/powerManagement.nix
     # ../../optional/v2ray.nix
     # ../../optional/virtualisation.nix
