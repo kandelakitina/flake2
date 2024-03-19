@@ -9,29 +9,62 @@
   ];
 
   fileSystems."/persist".neededForBoot = true;
-  environment.persistence = {
-    "/persist" = {
-      hideMounts = true;
-      directories = [
-        "/srv"
-        "/etc/ssh"
-        "/var/lib/systemd"
-        "/var/lib/nixos"
-        "/var/db/sudo/lectured"
-        "/var/log"
-        "/var/lib/bluetooth"
-        # "/var/lib/systemd/coredump"
-        "/etc/NetworkManager/system-connections"
 
-        "/home/${config.username}/flake2"
-        "/home/${config.username}/.ssh"
+  environment.persistence."/persist" = {
+    hideMounts = true;
+    directories = [
+      "/var/log"
+      "/var/lib/bluetooth"
+      "/var/lib/nixos"
+      "/var/lib/systemd/coredump"
+      "/etc/NetworkManager/system-connections"
+      { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
+    ];
+    files = [
+      "/etc/machine-id"
+      { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
+    ];
+    users.boticelli = {
+      directories = [
+        "Downloads"
+        "flake2"
+        "VMs"
+        { directory = ".gnupg"; mode = "0700"; }
+        { directory = ".ssh"; mode = "0700"; }
+        { directory = ".nixops"; mode = "0700"; }
+        { directory = ".local/share/keyrings"; mode = "0700"; }
+        ".local/share/direnv"
       ];
       files = [
-        "/etc/machine-id"
-        # "/etc/nix/id_rsa"
+        # ".screenrc"
       ];
     };
   };
+
+  # environment.persistence = {
+  #   "/persist" = {
+  #     hideMounts = true;
+  #     directories = [
+  #       "/srv"
+  #       "/etc/ssh"
+  #       "/var/lib/systemd"
+  #       "/var/lib/nixos"
+  #       "/var/db/sudo/lectured"
+  #       "/var/log"
+  #       "/var/lib/bluetooth"
+  #       # "/var/lib/systemd/coredump"
+  #       "/etc/NetworkManager/system-connections"
+
+  #       "/home/${config.username}/flake2"
+  #       "/home/${config.username}/.ssh"
+  #     ];
+  #     files = [
+  #       "/etc/machine-id"
+  #       # "/etc/nix/id_rsa"
+  #     ];
+  #   };
+  # };
+
   programs.fuse.userAllowOther = true;
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
