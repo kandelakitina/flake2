@@ -88,7 +88,7 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      # FIXME replace with your hostname
+      # FIXME replace with your 
       thinkpad = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs;

@@ -35,7 +35,7 @@
   networking.networkmanager.enable = true;
 
   environment.shellAliases = {
-    nrs = "sudo nixos-rebuild switch --flake .#${config.networking.hostName}";
+    # nrs = "sudo nixos-rebuild switch --flake .#${config.networking.hostName}";
   };
 
   environment.systemPackages = with pkgs; [

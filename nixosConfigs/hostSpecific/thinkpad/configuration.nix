@@ -6,7 +6,7 @@
   lib,
   config,
   pkgs,
-  hostName,
+  # hostName,
   ...
 }: {
   # You can import other NixOS modules here
@@ -36,8 +36,8 @@
   ];
 
   networking = {
-    # hostName = "thinkpad";
-    inherit hostName;
+    hostName = "thinkpad";
+    # inherit hostName;
   };
 
   nixpkgs = {
