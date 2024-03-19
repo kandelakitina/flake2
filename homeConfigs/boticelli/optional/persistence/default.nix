@@ -7,7 +7,7 @@
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  home.persistence."/persist/home" = {
+  home.persistence."/persist/home/${config.username}" = {
     directories = [
       ".gnupg"
       ".local/share/direnv"
