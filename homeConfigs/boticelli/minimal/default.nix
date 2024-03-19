@@ -6,7 +6,7 @@
   lib,
   config,
   pkgs,
-  # hostName,
+  hostName,
   ...
 }: {
   # You can import other home-manager modules here
