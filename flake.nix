@@ -106,6 +106,17 @@
           # }
         ];
       };
+
+      vm = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+          hostName = "vm";
+        };
+        modules = [
+          ./nixosConfigs/hostSpecific/vm/configuration.nix
+
+        ];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
