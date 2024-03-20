@@ -30,7 +30,7 @@
     ../../optional/gpg
     ../../optional/helix
     ../../optional/nnn
-    ../../optional/persistence
+    # ../../optional/persistence
     ../../optional/sops
     ../../optional/starship
     ../../optional/zellij

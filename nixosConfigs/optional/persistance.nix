@@ -19,7 +19,7 @@
       "/var/lib/systemd/coredump"
       "/etc/NetworkManager/system-connections"
 
-      # "/home/boticelli"
+      "/home/boticelli"
 
       # { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
