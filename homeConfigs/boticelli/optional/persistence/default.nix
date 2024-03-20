@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, ... }:
 
 { 
   imports = [
@@ -7,7 +7,7 @@
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  home.persistence."/persist/home" = {
+  home.persistence."/persist/home/${config.home.username}" = {
     directories = [
       "Downloads"
       "Projects"
