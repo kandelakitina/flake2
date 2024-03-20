@@ -109,7 +109,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.boticelli = {
-              imports = [../../../homeConfigs/boticelli/hostSpecific/thinkpad/home.nix];
+              imports = [./homeConfigs/boticelli/hostSpecific/thinkpad/home.nix ];
               # TODO fix
               # specialArgs = { inherit system user; };
             };
