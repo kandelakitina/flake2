@@ -4,9 +4,11 @@
   config,
   pkgs,
   ...
-}: let
-  ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
-in {
+}: 
+# let
+#   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
+# in 
+{
   # # Uncomment is using Home Manager as NixOS module
   # home-manager.users.boticelli = import ../../../homeConfigs/boticelli/${config.networking.hostName};
 
@@ -27,20 +29,20 @@ in {
         "wheel"
         "video"
         "audio"
-      ]
-      ++ ifTheyExist [
-        "networkmanager"
-        "libvirtd"
-        "kvm"
-        "docker"
-        "podman"
-        "git"
-        "network"
-        "wireshark"
-        "i2c"
-        "tss"
-        "plugdev"
       ];
+      # ++ ifTheyExist [
+      #   "networkmanager"
+      #   "libvirtd"
+      #   "kvm"
+      #   "docker"
+      #   "podman"
+      #   "git"
+      #   "network"
+      #   "wireshark"
+      #   "i2c"
+      #   "tss"
+      #   "plugdev"
+      # ];
 
     initialPassword = "password";
     # openssh.authorizedKeys.keys = [

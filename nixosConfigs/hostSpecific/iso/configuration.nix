@@ -6,7 +6,7 @@
   lib,
   config,
   pkgs,
-  hostName,
+  # hostName,
   ...
 }: {
   # You can import other NixOS modules here
@@ -21,7 +21,7 @@
 
     ../../userSpecific/boticelli.nix
 
-    (import ../../../diskoConfigs/btfrs.nix {device = "/dev/vda";})
+    # (import ../../../diskoConfigs/btfrs.nix {device = "/dev/vda";})
 
     ../../minimal/default.nix
 
@@ -32,15 +32,17 @@
     # ../../optional/gaming.nix
     ../../optional/gnome.nix
     # ../../optional/openGL.nix
-    ../../optional/persistance.nix
+    # ../../optional/persistance.nix
     # ../../optional/powerManagement.nix
-    ../../optional/v2ray.nix
+    # ../../optional/v2ray.nix
     # ../../optional/virtualisation.nix
   ];
 
   ## Extra settings for ISO:
 
   users.extraUsers.root.password = "password";
+
+  isoImage.squashfsCompression = "gzip -Xcompression-level 1";
 
   systemd = {
     services.sshd.wantedBy = pkgs.lib.mkForce ["multi-user.target"];
@@ -55,8 +57,8 @@
   ## Same settings:
 
   networking = {
-    # hostName = "thinkpad";
-    inherit hostName;
+    hostName = "thinkpad";
+    # inherit hostName;
   };
 
   nixpkgs = {

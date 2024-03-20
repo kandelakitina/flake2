@@ -12,6 +12,9 @@
     # simple flake to solve 'command-not-found' issue
     inputs.flake-programs-sqlite.nixosModules.programs-sqlite
 
+    # Uncomment if using Home Manager as NixOS module
+    inputs.home-manager.nixosModules.home-manager
+
     ./locale.nix
     ./nix.nix
     ./openssh.nix
@@ -25,14 +28,14 @@
   # programs.hyprland.enable = true;
 
   # Uncomment if using Home Manager as NixOS module
-  # home-manager.extraSpecialArgs = {  
-  #   inherit inputs outputs;
-  # };
+  home-manager.extraSpecialArgs = {  
+    inherit inputs outputs;
+  };
 
   networking.networkmanager.enable = true;
 
   environment.shellAliases = {
-    nrs = "sudo nixos-rebuild switch --flake .#${config.networking.hostName}";
+    # nrs = "sudo nixos-rebuild switch --flake .#${config.networking.hostName}";
   };
 
   environment.systemPackages = with pkgs; [

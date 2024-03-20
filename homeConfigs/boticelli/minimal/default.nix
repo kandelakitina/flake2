@@ -6,7 +6,7 @@
   lib,
   config,
   pkgs,
-  hostName,
+  # hostName,
   ...
 }: {
   # You can import other home-manager modules here
@@ -23,7 +23,7 @@
   };
 
   home.shellAliases = {
-    hms = "home-manager switch --flake .#${config.home.username}@${hostName}";
+    # hms = "home-manager switch --flake .#${config.home.username}@${hostName}";
   };
 
   nixpkgs = {
