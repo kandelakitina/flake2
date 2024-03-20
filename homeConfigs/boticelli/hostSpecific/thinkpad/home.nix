@@ -3,7 +3,6 @@
 {
   inputs,
   outputs,
-  username,
   lib,
   config,
   pkgs,
@@ -60,7 +59,7 @@
   };
 
   # TODO: Set your username
-  home = {
+  home = rec {
     username = "boticelli";
     homeDirectory = "/home/${username}";
   };

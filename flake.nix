@@ -88,18 +88,37 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      # FIXME replace with your hostname
       thinkpad = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs;
           hostName = "thinkpad";
-          # TODO: delete this line
-          # pkgs = nixpkgs.legacyPackages.x86_64-linux;
         };
         modules = [
-          # > Our main nixos configuration file <
           ./nixosConfigs/hostSpecific/thinkpad/configuration.nix
         ];
+      };
+
+      iso = nixpkgs.lib.nixosSystem {
+        modules = [
+          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
+          "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+          ./nixosConfigs/hostSpecific/iso/configuration.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.boticelli = {
+              imports = [../../../homeConfigs/boticelli/hostSpecific/thinkpad/home.nix];
+              # TODO fix
+              # specialArgs = { inherit system user; };
+            };
+          }
+        ];
+        specialArgs = {
+          inherit inputs outputs;
+          hostName = "thinkpad";
+        };
       };
     };
 

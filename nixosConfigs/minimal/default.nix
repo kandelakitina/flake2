@@ -9,9 +9,6 @@
 
   imports = [
 
-    # Uncomment if using Home Manager as NixOS module
-    # inputs.home-manager.nixosModules.home-manager
-
     # simple flake to solve 'command-not-found' issue
     inputs.flake-programs-sqlite.nixosModules.programs-sqlite
 
