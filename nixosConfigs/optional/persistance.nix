@@ -10,7 +10,7 @@
 
   fileSystems."/persist".neededForBoot = true;
 
-  environment.persistence."/persist" = {
+  environment.persistence."/persist/system" = {
     hideMounts = true;
     directories = [
       "/var/log"
@@ -19,7 +19,7 @@
       "/var/lib/systemd/coredump"
       "/etc/NetworkManager/system-connections"
 
-      "/home/boticelli"
+      # "/home/boticelli"
 
       # { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
@@ -70,6 +70,17 @@
   # };
 
   programs.fuse.userAllowOther = true;
+
+  system.activationScripts.persistent-dirs.text = let
+    mkHomePersist = user:
+      lib.optionalString user.createHome ''
+        mkdir -p /persist/${user.home}
+        chown ${user.name}:${user.group} /persist/${user.home}
+        chmod ${user.homeMode} /persist/${user.home}
+      '';
+    users = lib.attrValues config.users.users;
+  in
+    lib.concatLines (map mkHomePersist users);
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /btrfs_tmp
