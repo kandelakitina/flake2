@@ -13,7 +13,7 @@
     inputs.flake-programs-sqlite.nixosModules.programs-sqlite
 
     # Uncomment if using Home Manager as NixOS module
-    # inputs.home-manager.nixosModules.home-manager
+    inputs.home-manager.nixosModules.home-manager
 
     ./locale.nix
     ./nix.nix
