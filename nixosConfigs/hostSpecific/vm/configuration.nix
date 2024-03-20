@@ -6,60 +6,52 @@
   lib,
   config,
   pkgs,
-  # hostName,
   ...
 }: {
   # You can import other NixOS modules here
   imports = [
-    inputs.disko.nixosModules.disko
 
-    ./hardware-configuration.nix
+    # inputs.disko.nixosModules.disko
+    # (import ../../../diskoConfigs/btfrs.nix {device = "/dev/vda";})
+
+    # ./hardware-configuration.nix
 
     ../../userSpecific/boticelli.nix
 
-    (import ../../../diskoConfigs/btfrs.nix {device = "/dev/vda";})
-
-    ../../minimal/default.nix
+    # ../../minimal/default.nix
 
     # ../../optional/auto-hibernate.nix
     # ../../optional/auto-upgrade.nix
     # ../../optional/bluetooth.nix
     # ../../optional/fingerprint.nix
     # ../../optional/gaming.nix
-    ../../optional/gnome.nix
+    # ../../optional/gnome.nix
     # ../../optional/openGL.nix
-    ../../optional/persistance.nix
+    # ../../optional/persistance.nix
     # ../../optional/powerManagement.nix
+    ../../optional/qemu.nix
     # ../../optional/v2ray.nix
-    ../../optional/virtualisation.nix
+    # ../../optional/virtualisation.nix
   ];
 
-  boot.initrd.systemd.enable = true;
-  boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-    resumeDevice = "/dev/disk/by-label/nixos";
-  };
-
+  services.openssh.enable = true;
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
 
   networking = {
-    hostName = "vm";
     # inherit hostName;
+    hostName = "vm";
+    firewall.enable = false;
   };
 
-  nixpkgs = {
-    overlays =
-      builtins.attrValues outputs.overlays
-      ++ [
-        # inputs.nixneovimplugins.overlays.default
-        # inputs.neovim-nightly-overlay.overlay
-      ];
-  };
+  # nixpkgs = {
+  #   overlays =
+  #     builtins.attrValues outputs.overlays
+  #     ++ [
+  #       # inputs.nixneovimplugins.overlays.default
+  #       # inputs.neovim-nightly-overlay.overlay
+  #     ];
+  # };
 
   # modules.nixos = {
   #   avahi.enable = true;
@@ -75,7 +67,6 @@
   #   virtualisation.enable = true;
   #   vpn.enable = true;
   # };
-
 
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;

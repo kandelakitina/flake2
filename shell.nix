@@ -22,6 +22,9 @@
       ssh-to-age
       gnupg
       age
+
+      qemu
+      nixos-generators
     ];
   };
 }
