@@ -108,13 +108,13 @@
       };
 
       vm = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
-          hostName = "vm";
-        };
+        system = "x86_64-linux";
+        # specialArgs = {
+          # inherit inputs outputs;
+          # hostName = "vm";
+        # };
         modules = [
           ./nixosConfigs/hostSpecific/vm/configuration.nix
-
         ];
       };
     };
