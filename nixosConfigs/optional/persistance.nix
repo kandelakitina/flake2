@@ -45,30 +45,6 @@
     # };
   };
 
-  # environment.persistence = {
-  #   "/persist" = {
-  #     hideMounts = true;
-  #     directories = [
-  #       "/srv"
-  #       "/etc/ssh"
-  #       "/var/lib/systemd"
-  #       "/var/lib/nixos"
-  #       "/var/db/sudo/lectured"
-  #       "/var/log"
-  #       "/var/lib/bluetooth"
-  #       # "/var/lib/systemd/coredump"
-  #       "/etc/NetworkManager/system-connections"
-
-  #       "/home/${config.username}/flake2"
-  #       "/home/${config.username}/.ssh"
-  #     ];
-  #     files = [
-  #       "/etc/machine-id"
-  #       # "/etc/nix/id_rsa"
-  #     ];
-  #   };
-  # };
-
   programs.fuse.userAllowOther = true;
 
   # system.activationScripts.persistent-dirs.text = let
