@@ -58,7 +58,7 @@
     virtualisation = {
       memorySize = 4048; # Use 2048MiB memory.
       cores = 4;
-      # graphics = false;
+      graphics = false;
     };
   };
 
