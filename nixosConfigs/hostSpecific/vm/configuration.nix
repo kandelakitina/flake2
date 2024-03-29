@@ -8,13 +8,13 @@
 }: {
   imports = [
     # inputs.hardware.nixosModules.lenovo-thinkpad-x1-7th-gen
-    # inputs.disko.nixosModules.disko
+    inputs.disko.nixosModules.disko
 
     ./hardware-configuration.nix
 
     ../../userSpecific/boticelli.nix
 
-    # (import ../../../diskoConfigs/btfrs.nix {device = "/dev/vda";})
+    (import ../../../diskoConfigs/btfrs.nix {device = "/dev/vda";})
 
     ../../minimal/default.nix
 
@@ -25,7 +25,7 @@
     # ../../optional/gaming.nix
     ../../optional/gnome.nix
     # ../../optional/openGL.nix
-    # ../../optional/persistance.nix
+    ../../optional/persistance.nix
     # ../../optional/powerManagement.nix
     # ../../optional/v2ray.nix
     # ../../optional/virtualisation.nix
@@ -39,20 +39,20 @@
     # inherit hostName;
   };
 
-  boot = {
-    kernelParams = [
-      "amdgpu.sg_display=0"
-      "resume_offset=533760"
-    ];
-    blacklistedKernelModules = ["hid-sensor-hub"];
-    supportedFilesystems = lib.mkForce ["btrfs"];
-    kernelPackages = pkgs.linuxPackages_latest;
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-    # resumeDevice = "/dev/disk/by-label/nixos";
-  };
+  # boot = {
+  #   kernelParams = [
+  #     "amdgpu.sg_display=0"
+  #     "resume_offset=533760"
+  #   ];
+  #   blacklistedKernelModules = ["hid-sensor-hub"];
+  #   supportedFilesystems = lib.mkForce ["btrfs"];
+  #   kernelPackages = pkgs.linuxPackages_latest;
+  #   loader = {
+  #     systemd-boot.enable = true;
+  #     efi.canTouchEfiVariables = true;
+  #   };
+  #   # resumeDevice = "/dev/disk/by-label/nixos";
+  # };
 
   users.users = {
     admin = {
