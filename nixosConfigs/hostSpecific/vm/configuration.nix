@@ -8,13 +8,13 @@
 }: {
   imports = [
     # inputs.hardware.nixosModules.lenovo-thinkpad-x1-7th-gen
-    inputs.disko.nixosModules.disko
+    # inputs.disko.nixosModules.disko
 
     ./hardware-configuration.nix
 
     ../../userSpecific/boticelli.nix
 
-    (import ../../../diskoConfigs/btfrs.nix {device = "/dev/vda";})
+    # (import ../../../diskoConfigs/btfrs.nix {device = "/dev/vda";})
 
     ../../minimal/default.nix
 
@@ -58,7 +58,7 @@
     virtualisation = {
       memorySize = 4048; # Use 2048MiB memory.
       cores = 4;
-      graphics = false;
+      # graphics = false;
     };
   };
 
