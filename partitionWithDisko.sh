@@ -29,3 +29,6 @@ selected_file="${files[$file_number - 1]}"
 command="sudo nix --experimental-features \"nix-command flakes\" run github:nix-community/disko -- --mode disko ${selected_file} --arg device '\"/dev/${disk_name}\"'"
 echo "Running command: $command"
 eval "$command"
+
+# 6. Check results
+lsblk
