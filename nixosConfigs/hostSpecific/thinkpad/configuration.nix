@@ -52,7 +52,7 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    resumeDevice = "/dev/disk/by-label/nixos";
+    # resumeDevice = "/dev/disk/by-label/nixos";
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

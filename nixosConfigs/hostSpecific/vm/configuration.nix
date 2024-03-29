@@ -51,7 +51,7 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    resumeDevice = "/dev/disk/by-label/nixos";
+    # resumeDevice = "/dev/disk/by-label/nixos";
   };
 
   users.users = {
