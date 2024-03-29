@@ -39,11 +39,11 @@
     # inherit hostName;
   };
 
-  fileSystems."/" = {
-    device = "/dev/root_vg/root";
-    fsType = "btrfs";
-    options = [ "subvol=root" ];
-  };
+  # fileSystems."/" = {
+  #   device = "/dev/root_vg/root";
+  #   fsType = "btrfs";
+  #   options = [ "subvol=root" ];
+  # };
 
   boot.loader.systemd-boot.enable = true; # (for UEFI systems only)
 
@@ -72,23 +72,23 @@
     umount /btrfs_tmp
   '';
 
-  fileSystems."/persistent" = {
-    device = "/dev/root_vg/root";
-    neededForBoot = true;
-    fsType = "btrfs";
-    options = [ "subvol=persistent" ];
-  };
+  # fileSystems."/persistent" = {
+  #   device = "/dev/root_vg/root";
+  #   neededForBoot = true;
+  #   fsType = "btrfs";
+  #   options = [ "subvol=persistent" ];
+  # };
 
-  fileSystems."/nix" = {
-    device = "/dev/root_vg/root";
-    fsType = "btrfs";
-    options = [ "subvol=nix" ];
-  };
+  # fileSystems."/nix" = {
+  #   device = "/dev/root_vg/root";
+  #   fsType = "btrfs";
+  #   options = [ "subvol=nix" ];
+  # };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-label/boot";
-    fsType = "vfat";
-  };
+  # fileSystems."/boot" = {
+  #   device = "/dev/disk/by-label/boot";
+  #   fsType = "vfat";
+  # };
 
   # boot = {
   #   kernelParams = [
