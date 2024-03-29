@@ -6,8 +6,13 @@
   pkgs,
   ...
 }: {
-
   nixpkgs = {
+    overlays =
+      builtins.attrValues outputs.overlays
+      ++ [
+        # inputs.nixneovimplugins.overlays.default
+        # inputs.neovim-nightly-overlay.overlay
+      ];
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
@@ -32,7 +37,7 @@
       experimental-features = ["nix-command" "flakes" "repl-flake"];
       warn-dirty = false;
       system-features = ["kvm" "big-parallel" "nixos-test"];
- 
+
       # adding cachix servers for quick binary download
       trusted-substituters = [
         "https://cache.nixos.org"
